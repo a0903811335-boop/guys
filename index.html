@@ -232,28 +232,6 @@
       gap: 10px;
     }
 
-    .profile-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 10px;
-    }
-
-    .profile-tag {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .profile-tag strong {
-      color: var(--text-main);
-    }
 
     .stats-row {
       display: grid;
@@ -1200,9 +1178,6 @@
     </a>
     
     <div class="nav-actions">
-      <button class="btn btn-secondary" onclick="openProfileModal()" title="編輯實習教師個人資料">
-        <span>👤</span> 實習檔案資料
-      </button>
       <button class="btn btn-primary" onclick="openAddModal()">
         <span>➕</span> 新增活動紀錄
       </button>
@@ -1222,17 +1197,12 @@
   <section class="hero-panel">
     <div class="hero-content">
       <div class="profile-info">
-        <h2>
-          <span id="displayTeacherName">實習教師</span>
-          <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">的教育實習日誌</span>
+        <h2 style="font-size: 1.45rem; font-weight: 700;">
+          教育實習歷程與活動總覽
         </h2>
-        <div class="profile-tags">
-          <div class="profile-tag">🏫 學校：<strong id="displaySchool">實習合作中學</strong></div>
-          <div class="profile-tag">📚 科別：<strong id="displaySubject">中等教育 / 自然科學領域</strong></div>
-          <div class="profile-tag">👨‍🏫 指導教授：<strong id="displayProfessor">大學指導教授</strong></div>
-          <div class="profile-tag">👩‍🏫 輔導教師：<strong id="displayMentor">校內實習輔導教師</strong></div>
-          <div class="profile-tag">🗓️ 實習期程：<strong id="displayPeriod">113學年度第一學期</strong></div>
-        </div>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 4px;">
+          紀錄教育實習期間之教學實習、導師實習、行政實習與研習參訪歷程
+        </p>
       </div>
 
       <div class="stats-row">
@@ -1498,55 +1468,6 @@
   </div>
 </div>
 
-<!-- MODAL: Teacher Profile -->
-<div id="profileModal" class="modal-backdrop" onclick="closeModalOnBackdrop(event, 'profileModal')">
-  <div class="modal-window" style="max-width: 550px;">
-    <div class="modal-header">
-      <h3>👤 實習基本資料設定</h3>
-      <button class="modal-close-btn" onclick="closeModal('profileModal')">&times;</button>
-    </div>
-    <form onsubmit="saveProfile(event)">
-      <div class="modal-body">
-        <div class="form-group">
-          <label class="form-label">實習教師姓名</label>
-          <input type="text" id="profName" class="form-control" value="賈哲" required>
-        </div>
-        <div class="form-group">
-          <label class="form-label">實習學校</label>
-          <input type="text" id="profSchool" class="form-control" value="國立教育實習合作學校">
-        </div>
-        <div class="form-group">
-          <label class="form-label">任教學科 / 領域</label>
-          <input type="text" id="profSubject" class="form-control" value="中等教育 / 自然科學領域 (物理科)">
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">指導教授</label>
-            <input type="text" id="profProfessor" class="form-control" value="大學指導教授">
-          </div>
-          <div class="form-group">
-            <label class="form-label">實習輔導教師</label>
-            <input type="text" id="profMentor" class="form-control" value="校內實習輔導教師">
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">實習開始日</label>
-            <input type="date" id="profStartDate" class="form-control" value="2026-08-01">
-          </div>
-          <div class="form-group">
-            <label class="form-label">實習結束日</label>
-            <input type="date" id="profEndDate" class="form-control" value="2027-01-31">
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" onclick="closeModal('profileModal')">取消</button>
-        <button type="submit" class="btn btn-primary">💾 儲存基本資料</button>
-      </div>
-    </form>
-  </div>
-</div>
 
 <!-- MODAL: Settings & Backup -->
 <div id="settingsModal" class="modal-backdrop" onclick="closeModalOnBackdrop(event, 'settingsModal')">
@@ -1708,7 +1629,6 @@ let currentLightboxIndex = 0;
 function init() {
   loadData();
   applyTheme();
-  renderProfile();
   renderStats();
   renderActivities();
 }
@@ -1731,23 +1651,6 @@ function saveData() {
 // ==========================================
 // 4. 渲染邏輯 (Rendering)
 // ==========================================
-function renderProfile() {
-  document.getElementById('displayTeacherName').textContent = profile.name || "實習教師";
-  document.getElementById('displaySchool').textContent = profile.school || "實習學校";
-  document.getElementById('displaySubject').textContent = profile.subject || "自然科學領域";
-  document.getElementById('displayProfessor').textContent = profile.professor || "指導教授";
-  document.getElementById('displayMentor').textContent = profile.mentor || "輔導教師";
-  document.getElementById('displayPeriod').textContent = profile.period || "113學年度";
-
-  // Form profile values
-  document.getElementById('profName').value = profile.name || "";
-  document.getElementById('profSchool').value = profile.school || "";
-  document.getElementById('profSubject').value = profile.subject || "";
-  document.getElementById('profProfessor').value = profile.professor || "";
-  document.getElementById('profMentor').value = profile.mentor || "";
-  document.getElementById('profStartDate').value = profile.startDate || "2026-08-01";
-  document.getElementById('profEndDate').value = profile.endDate || "2027-01-31";
-}
 
 function renderStats() {
   const total = activities.length;
@@ -2171,27 +2074,7 @@ function saveActivity(e) {
   closeModal('formModal');
 }
 
-// Profile Modal
-function openProfileModal() {
-  openModal('profileModal');
-}
 
-function saveProfile(e) {
-  e.preventDefault();
-  profile.name = document.getElementById('profName').value.trim();
-  profile.school = document.getElementById('profSchool').value.trim();
-  profile.subject = document.getElementById('profSubject').value.trim();
-  profile.professor = document.getElementById('profProfessor').value.trim();
-  profile.mentor = document.getElementById('profMentor').value.trim();
-  profile.startDate = document.getElementById('profStartDate').value;
-  profile.endDate = document.getElementById('profEndDate').value;
-
-  localStorage.setItem('practicum_profile', JSON.stringify(profile));
-  renderProfile();
-  renderStats();
-  closeModal('profileModal');
-  showToast('👤 實習基本資料已儲存');
-}
 
 // Settings Modal & Backup
 function openSettingsModal() {
