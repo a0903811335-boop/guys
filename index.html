@@ -897,7 +897,7 @@
   <section class="filter-bar">
     <div class="category-pills">
       <button class="cat-pill active" onclick="setCategoryFilter('all', this)">全部面向</button>
-      <button class="cat-pill" onclick="setCategoryFilter('研習與專業成長', this)">🟣 研習增能</button>
+      <button class="cat-pill" onclick="setCategoryFilter('研習與專業成長', this)">🟣 研習紀錄</button>
       <button class="cat-pill" onclick="setCategoryFilter('行政實習', this)">📘 行政實習</button>
       <button class="cat-pill" onclick="setCategoryFilter('教學實習', this)">🌸 教學實習</button>
       <button class="cat-pill" onclick="setCategoryFilter('導師實習', this)">📙 導師實習</button>
@@ -981,7 +981,7 @@
           <div class="form-group">
             <label class="form-label">實習面向分類 <span style="color:red">*</span></label>
             <select id="formCategory" class="form-control" required>
-              <option value="研習與專業成長">🟣 研習增能</option>
+              <option value="研習與專業成長">🟣 研習紀錄</option>
               <option value="教學實習">🌸 教學實習</option>
               <option value="導師實習">📙 導師實習</option>
               <option value="行政實習">📘 行政實習</option>
@@ -1237,7 +1237,7 @@ function getCategoryBadge(cat) {
     case '行政實習': return `<span class="cat-badge badge-admin">📘 行政實習</span>`;
     case '教學實習': return `<span class="cat-badge badge-teach">🌸 教學實習</span>`;
     case '導師實習': return `<span class="cat-badge badge-mentor">📙 導師實習</span>`;
-    case '研習與專業成長': return `<span class="cat-badge badge-study">🟣 研習增能</span>`;
+    case '研習與專業成長': return `<span class="cat-badge badge-study">🟣 研習紀錄</span>`;
     default: return `<span class="cat-badge badge-study">🟣 ${cat}</span>`;
   }
 }
