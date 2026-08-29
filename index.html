@@ -934,8 +934,6 @@
       <!-- Meta Information -->
       <div style="display: flex; flex-wrap: wrap; gap: 18px; margin-bottom: 18px; font-size: 0.88rem; color: var(--text-muted); padding-bottom: 14px; border-bottom: 1px dashed var(--card-border);">
         <div>📅 <strong>活動日期：</strong><span id="detailDate"></span></div>
-        <div>📍 <strong>活動地點：</strong><span id="detailLocation"></span></div>
-        <div>👥 <strong>參與對象：</strong><span id="detailAttendees"></span></div>
       </div>
 
       <!-- Photos Section -->
@@ -996,17 +994,6 @@
           <div class="form-group">
             <label class="form-label">活動日期 <span style="color:red">*</span></label>
             <input type="date" id="formDate" class="form-control" required>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">活動地點</label>
-            <input type="text" id="formLocation" class="form-control" placeholder="例如：東華大學物理系實驗室、校內國文科研究室">
-          </div>
-          <div class="form-group">
-            <label class="form-label">參與對象 / 人員</label>
-            <input type="text" id="formAttendees" class="form-control" placeholder="例如：實習教師、國文科同仁、指導教師">
           </div>
         </div>
 
@@ -1454,7 +1441,6 @@ function renderEvents() {
         <div class="event-info">
           <div class="event-meta">
             ${catBadge}
-            ${act.location ? `<span class="event-location">📍 ${act.location}</span>` : ''}
           </div>
           <h3 class="event-title">${act.title}</h3>
           <p class="event-summary">${act.description || '點擊查看詳細紀要與照片...'}</p>
@@ -1487,8 +1473,6 @@ function openDetailModal(id) {
 
   document.getElementById('detailTitle').textContent = act.title;
   document.getElementById('detailDate').textContent = `${act.date || ''} (${getWeekday(act.date)})`;
-  document.getElementById('detailLocation').textContent = act.location || '校內 / 未填寫';
-  document.getElementById('detailAttendees').textContent = act.attendees || '實習教師';
   
   document.getElementById('detailDescription').textContent = act.description || '（無活動內容說明）';
   document.getElementById('detailReflection').textContent = act.reflection || '（尚未填寫心得省思）';
@@ -1551,8 +1535,6 @@ function openEditModal(act) {
   document.getElementById('formTitle').value = act.title || '';
   document.getElementById('formCategory').value = act.category || '研習與專業成長';
   document.getElementById('formDate').value = act.date || '';
-  document.getElementById('formLocation').value = act.location || '';
-  document.getElementById('formAttendees').value = act.attendees || '';
   document.getElementById('formPhotos').value = (act.photos || []).join(', ');
   document.getElementById('formDescription').value = act.description || '';
   document.getElementById('formReflection').value = act.reflection || '';
@@ -1565,8 +1547,6 @@ function saveActivity(e) {
   const title = document.getElementById('formTitle').value.trim();
   const category = document.getElementById('formCategory').value;
   const date = document.getElementById('formDate').value;
-  const location = document.getElementById('formLocation').value.trim();
-  const attendees = document.getElementById('formAttendees').value.trim();
   
   const rawPhotos = document.getElementById('formPhotos').value.trim();
   const photos = rawPhotos ? rawPhotos.split(',').map(p => p.trim()).filter(Boolean) : [];
@@ -1577,7 +1557,7 @@ function saveActivity(e) {
   if (id) {
     const idx = activities.findIndex(a => a.id === id);
     if (idx !== -1) {
-      activities[idx] = { ...activities[idx], title, category, date, location, attendees, photos, description, reflection };
+      activities[idx] = { ...activities[idx], title, category, date, photos, description, reflection };
       showToast('🌸 紀事已成功更新');
     }
   } else {
@@ -1586,8 +1566,6 @@ function saveActivity(e) {
       title,
       category,
       date,
-      location,
-      attendees,
       photos,
       description,
       reflection
