@@ -3,107 +3,155 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>教育實習歷程日誌 | 8月～12月實習活動總覽</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗓️</text></svg>">
+  <title>師道傳燈 · 國文教育實習錄 | 捌月至拾貳月實習紀事</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪶</text></svg>">
   <style>
     :root {
-      --primary: #2563eb;
-      --primary-hover: #1d4ed8;
-      --primary-light: #eff6ff;
-      --primary-border: #bfdbfe;
+      /* 淡紫、紫藤、粉櫻古典色彩系統 */
+      --primary: #8a4ba0;
+      --primary-hover: #733b87;
+      --primary-light: #fbf5fe;
+      --primary-border: #e9d5f5;
       
-      --bg: #f8fafc;
-      --card-bg: #ffffff;
-      --card-border: #e2e8f0;
-      --text-main: #0f172a;
-      --text-muted: #64748b;
-      --text-light: #94a3b8;
-      
-      --cat-admin: #3b82f6;
-      --cat-admin-bg: #eff6ff;
-      --cat-teach: #10b981;
-      --cat-teach-bg: #ecfdf5;
-      --cat-mentor: #f59e0b;
-      --cat-mentor-bg: #fffbeb;
-      --cat-study: #8b5cf6;
-      --cat-study-bg: #f5f3ff;
+      --accent-pink: #d9658b;
+      --accent-pink-light: #fdf2f7;
+      --accent-pink-border: #fad4e4;
 
-      --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.06);
-      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.04);
-      --shadow-lg: 0 12px 20px -3px rgb(0 0 0 / 0.1);
+      --bg: #faf7fc;
+      --card-bg: rgba(255, 255, 255, 0.95);
+      --card-border: #eee2f3;
+      --text-main: #2d2235;
+      --text-muted: #6b5b75;
+      --text-light: #9d8fa7;
+
+      --seal-red: #c0392b;
+      --seal-bg: #fdf2f0;
+
+      --cat-study: #8a4ba0;
+      --cat-study-bg: #f7edfd;
+      --cat-teach: #c04874;
+      --cat-teach-bg: #fdf0f5;
+      --cat-mentor: #d97736;
+      --cat-mentor-bg: #fef5ec;
+      --cat-admin: #4f6fb8;
+      --cat-admin-bg: #f0f4fd;
+
+      --shadow-sm: 0 2px 5px rgba(120, 60, 140, 0.04);
+      --shadow-md: 0 6px 16px rgba(120, 60, 140, 0.07);
+      --shadow-lg: 0 16px 30px rgba(120, 60, 140, 0.1);
       
       --radius-sm: 8px;
-      --radius-md: 12px;
-      --radius-lg: 18px;
-      --radius-xl: 24px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 26px;
     }
 
     [data-theme="dark"] {
-      --bg: #0b0f19;
-      --card-bg: #151c2c;
-      --card-border: #232f48;
-      --text-main: #f1f5f9;
-      --text-muted: #94a3b8;
-      --text-light: #64748b;
-      
-      --primary-light: #1e293b;
-      --primary-border: #1e40af;
-      
-      --cat-admin-bg: #172554;
-      --cat-teach-bg: #064e3b;
-      --cat-mentor-bg: #451a03;
-      --cat-study-bg: #2e1065;
+      --bg: #140d1e;
+      --card-bg: rgba(28, 19, 41, 0.95);
+      --card-border: #352449;
+      --text-main: #f5edf8;
+      --text-muted: #b7a4c4;
+      --text-light: #7b698a;
 
-      --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.4);
-      --shadow-md: 0 4px 8px -1px rgb(0 0 0 / 0.5);
-      --shadow-lg: 0 12px 20px -3px rgb(0 0 0 / 0.7);
+      --primary: #b370cb;
+      --primary-hover: #c888df;
+      --primary-light: #251636;
+      --primary-border: #4d2f6a;
+
+      --accent-pink: #eb7fa3;
+      --accent-pink-light: #321626;
+      --accent-pink-border: #5c2443;
+
+      --cat-study-bg: #2d163d;
+      --cat-teach-bg: #381525;
+      --cat-mentor-bg: #3b1e10;
+      --cat-admin-bg: #14223d;
+
+      --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.4);
+      --shadow-md: 0 8px 18px rgba(0, 0, 0, 0.5);
+      --shadow-lg: 0 16px 32px rgba(0, 0, 0, 0.6);
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      font-family: "PingFang TC", "Songti TC", "Noto Serif TC", "Source Han Serif TC", "Kaiti TC", "BiauKai", "DFKai-SB", STSong, -apple-system, serif;
       -webkit-font-smoothing: antialiased;
     }
 
     body {
       background-color: var(--bg);
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(217, 101, 139, 0.04) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(138, 75, 160, 0.05) 0%, transparent 50%);
       color: var(--text-main);
       min-height: 100vh;
-      line-height: 1.6;
+      line-height: 1.7;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     .container {
-      max-width: 1100px;
+      max-width: 1080px;
       margin: 0 auto;
-      padding: 32px 20px 80px 20px;
+      padding: 36px 20px 80px 20px;
     }
 
-    /* Header */
+    /* Classical Header */
     .top-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 28px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid var(--card-border);
+      margin-bottom: 30px;
+      padding-bottom: 22px;
+      border-bottom: 2px solid transparent;
+      border-image: linear-gradient(to right, transparent, var(--primary-border), var(--accent-pink-border), transparent) 1;
+      position: relative;
+    }
+
+    .header-branding {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* Traditional Chinese Seal Chop (印章) */
+    .chinese-seal {
+      width: 48px;
+      height: 48px;
+      border: 2px solid var(--seal-red);
+      background: var(--seal-bg);
+      color: var(--seal-red);
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: 1px;
+      box-shadow: inset 0 0 4px rgba(192, 57, 43, 0.15), 0 2px 6px rgba(192, 57, 43, 0.1);
+      user-select: none;
+      flex-shrink: 0;
     }
 
     .header-title h1 {
-      font-size: 1.6rem;
+      font-size: 1.65rem;
       font-weight: 800;
-      letter-spacing: -0.02em;
+      letter-spacing: 0.04em;
+      color: var(--primary);
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
 
     .header-title p {
       font-size: 0.88rem;
       color: var(--text-muted);
-      margin-top: 4px;
+      margin-top: 3px;
+      letter-spacing: 0.02em;
     }
 
     .header-actions {
@@ -112,6 +160,7 @@
       gap: 10px;
     }
 
+    /* Classical Buttons */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -119,30 +168,33 @@
       padding: 9px 18px;
       font-size: 0.9rem;
       font-weight: 600;
-      border-radius: var(--radius-sm);
+      border-radius: 999px;
       border: 1px solid transparent;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.25s ease;
       text-decoration: none;
+      letter-spacing: 0.03em;
     }
 
     .btn-primary {
-      background-color: var(--primary);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent-pink) 100%);
       color: white;
+      box-shadow: 0 4px 12px rgba(138, 75, 160, 0.25);
     }
     .btn-primary:hover {
-      background-color: var(--primary-hover);
-      transform: translateY(-1px);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(138, 75, 160, 0.35);
     }
 
     .btn-secondary {
-      background-color: var(--card-bg);
+      background: var(--card-bg);
       color: var(--text-main);
       border-color: var(--card-border);
     }
     .btn-secondary:hover {
-      background-color: var(--primary-light);
+      background: var(--primary-light);
       border-color: var(--primary);
+      color: var(--primary);
     }
 
     .btn-icon {
@@ -152,7 +204,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      border-radius: var(--radius-sm);
+      border-radius: 50%;
       background-color: var(--card-bg);
       border: 1px solid var(--card-border);
       color: var(--text-main);
@@ -162,22 +214,25 @@
     }
     .btn-icon:hover {
       background-color: var(--primary-light);
+      color: var(--primary);
+      border-color: var(--primary);
     }
 
-    /* Month Selector Tabs (8月～12月 / 1月) */
+    /* Month Selector Tabs (8月～12月 / 1月) - 古典雅緻捲軸風 */
     .month-nav-container {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: var(--radius-lg);
-      padding: 8px;
+      padding: 10px;
       margin-bottom: 24px;
       box-shadow: var(--shadow-sm);
+      position: relative;
     }
 
     .month-tabs {
       display: grid;
       grid-template-columns: repeat(6, 1fr) auto;
-      gap: 6px;
+      gap: 8px;
     }
 
     @media (max-width: 768px) {
@@ -191,13 +246,13 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 12px 8px;
+      padding: 14px 10px;
       border-radius: var(--radius-md);
       border: 1px solid transparent;
       background: transparent;
       color: var(--text-muted);
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.25s ease;
       position: relative;
     }
 
@@ -207,65 +262,78 @@
     }
 
     .month-tab.active {
-      background: var(--primary);
-      color: white;
+      background: linear-gradient(145deg, var(--primary-light), var(--accent-pink-light));
+      color: var(--primary);
+      border: 1px solid var(--primary-border);
       font-weight: 700;
-      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+      box-shadow: 0 4px 12px rgba(138, 75, 160, 0.1);
     }
 
     .month-tab-name {
-      font-size: 1rem;
-      font-weight: 700;
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
     }
 
     .month-tab-sub {
-      font-size: 0.72rem;
-      opacity: 0.85;
+      font-size: 0.76rem;
+      color: var(--accent-pink);
       margin-top: 2px;
+      letter-spacing: 0.04em;
     }
 
     .month-tab-count {
       position: absolute;
       top: 6px;
       right: 8px;
-      background: rgba(0, 0, 0, 0.15);
-      font-size: 0.68rem;
-      padding: 1px 6px;
-      border-radius: 999px;
-    }
-
-    .month-tab.active .month-tab-count {
-      background: rgba(255, 255, 255, 0.3);
+      background: var(--primary);
       color: white;
+      font-size: 0.68rem;
+      padding: 1px 7px;
+      border-radius: 999px;
+      font-weight: 600;
     }
 
-    /* Month Header Banner */
+    /* Month Banner */
     .month-banner {
-      background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
+      background: linear-gradient(135deg, rgba(138, 75, 160, 0.07) 0%, rgba(217, 101, 139, 0.07) 100%);
       border: 1px solid var(--card-border);
       border-radius: var(--radius-lg);
-      padding: 20px 24px;
+      padding: 22px 28px;
       margin-bottom: 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .month-banner::after {
+      content: "🌸";
+      position: absolute;
+      right: 20px;
+      bottom: -10px;
+      font-size: 5rem;
+      opacity: 0.07;
+      pointer-events: none;
     }
 
     .month-banner-title h2 {
-      font-size: 1.35rem;
+      font-size: 1.4rem;
       font-weight: 800;
-      color: var(--text-main);
+      color: var(--primary);
       display: flex;
       align-items: center;
       gap: 8px;
+      letter-spacing: 0.03em;
     }
 
     .month-banner-title p {
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       color: var(--text-muted);
-      margin-top: 3px;
+      margin-top: 4px;
     }
 
     .month-stats-badge {
@@ -284,16 +352,17 @@
       display: flex;
       align-items: center;
       gap: 6px;
+      box-shadow: var(--shadow-sm);
     }
 
-    /* Search and Category Filter */
+    /* Filter & Search Bar */
     .filter-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 14px;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
     }
 
     .category-pills {
@@ -303,9 +372,9 @@
     }
 
     .cat-pill {
-      padding: 5px 12px;
+      padding: 5px 14px;
       border-radius: 999px;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       font-weight: 600;
       border: 1px solid var(--card-border);
       background: var(--card-bg);
@@ -314,29 +383,32 @@
       transition: all 0.2s;
     }
 
-    .cat-pill:hover, .cat-pill.active {
+    .cat-pill:hover {
       border-color: var(--primary);
       color: var(--primary);
-      background: var(--primary-light);
     }
 
     .cat-pill.active {
       background: var(--primary);
       color: white;
       border-color: var(--primary);
+      box-shadow: 0 2px 8px rgba(138, 75, 160, 0.25);
     }
 
     .search-input {
-      padding: 7px 14px;
-      border-radius: var(--radius-sm);
+      padding: 8px 16px;
+      border-radius: 999px;
       border: 1px solid var(--card-border);
       background: var(--card-bg);
       color: var(--text-main);
       font-size: 0.85rem;
       outline: none;
-      min-width: 220px;
+      min-width: 240px;
+      transition: border-color 0.2s;
     }
-    .search-input:focus { border-color: var(--primary); }
+    .search-input:focus {
+      border-color: var(--primary);
+    }
 
     /* Itinerary / Activity Schedule List */
     .events-list {
@@ -349,62 +421,80 @@
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: var(--radius-md);
-      padding: 18px 22px;
+      padding: 18px 24px;
       display: grid;
-      grid-template-columns: 90px 1fr auto;
+      grid-template-columns: 96px 1fr auto;
       align-items: center;
-      gap: 20px;
+      gap: 22px;
       box-shadow: var(--shadow-sm);
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.25s ease;
       position: relative;
       overflow: hidden;
+    }
+
+    .event-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(to bottom, var(--primary), var(--accent-pink));
+      opacity: 0;
+      transition: opacity 0.2s;
     }
 
     .event-card:hover {
       transform: translateY(-2px);
       box-shadow: var(--shadow-md);
-      border-color: var(--primary);
+      border-color: var(--primary-border);
+    }
+
+    .event-card:hover::before {
+      opacity: 1;
     }
 
     @media (max-width: 650px) {
       .event-card {
         grid-template-columns: 1fr;
-        gap: 12px;
+        gap: 14px;
       }
     }
 
-    /* Date Box */
+    /* Classical Date Box */
     .date-box {
-      background: var(--primary-light);
+      background: linear-gradient(145deg, var(--primary-light), var(--accent-pink-light));
       border: 1px solid var(--primary-border);
       border-radius: var(--radius-sm);
-      padding: 10px 8px;
+      padding: 10px 6px;
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      position: relative;
     }
 
     .date-box-month {
-      font-size: 0.72rem;
+      font-size: 0.74rem;
       font-weight: 700;
       color: var(--primary);
-      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
     .date-box-day {
-      font-size: 1.55rem;
-      font-weight: 800;
+      font-size: 1.6rem;
+      font-weight: 900;
       color: var(--text-main);
       line-height: 1.1;
       margin: 2px 0;
+      font-family: Georgia, "Songti TC", serif;
     }
 
     .date-box-weekday {
-      font-size: 0.7rem;
-      color: var(--text-muted);
+      font-size: 0.72rem;
+      color: var(--accent-pink);
     }
 
     /* Event Info */
@@ -417,7 +507,7 @@
     .event-meta {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       flex-wrap: wrap;
     }
 
@@ -425,34 +515,36 @@
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      padding: 2px 8px;
+      padding: 2px 10px;
       border-radius: 999px;
-      font-size: 0.74rem;
+      font-size: 0.75rem;
       font-weight: 700;
+      letter-spacing: 0.03em;
     }
 
-    .badge-admin { background: var(--cat-admin-bg); color: var(--cat-admin); border: 1px solid #bfdbfe; }
-    .badge-teach { background: var(--cat-teach-bg); color: var(--cat-teach); border: 1px solid #a7f3d0; }
-    .badge-mentor { background: var(--cat-mentor-bg); color: var(--cat-mentor); border: 1px solid #fde68a; }
-    .badge-study { background: var(--cat-study-bg); color: var(--cat-study); border: 1px solid #ddd6fe; }
+    .badge-study { background: var(--cat-study-bg); color: var(--cat-study); border: 1px solid var(--primary-border); }
+    .badge-teach { background: var(--cat-teach-bg); color: var(--cat-teach); border: 1px solid var(--accent-pink-border); }
+    .badge-mentor { background: var(--cat-mentor-bg); color: var(--cat-mentor); border: 1px solid #fde2cc; }
+    .badge-admin { background: var(--cat-admin-bg); color: var(--cat-admin); border: 1px solid #c7d7f9; }
 
     .event-location {
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       color: var(--text-muted);
       display: flex;
       align-items: center;
-      gap: 3px;
+      gap: 4px;
     }
 
     .event-title {
-      font-size: 1.12rem;
+      font-size: 1.15rem;
       font-weight: 700;
       color: var(--text-main);
       line-height: 1.4;
+      letter-spacing: 0.02em;
     }
 
     .event-summary {
-      font-size: 0.84rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
       display: -webkit-box;
       -webkit-line-clamp: 1;
@@ -471,9 +563,9 @@
     .photo-indicator {
       background: var(--bg);
       border: 1px solid var(--card-border);
-      padding: 4px 10px;
+      padding: 4px 12px;
       border-radius: 999px;
-      font-size: 0.76rem;
+      font-size: 0.78rem;
       font-weight: 600;
       color: var(--text-main);
       display: inline-flex;
@@ -482,12 +574,13 @@
     }
 
     .view-arrow {
-      font-size: 0.85rem;
+      font-size: 0.86rem;
       font-weight: 700;
-      color: var(--primary);
+      color: var(--accent-pink);
       display: flex;
       align-items: center;
       gap: 4px;
+      letter-spacing: 0.03em;
     }
 
     /* Empty state */
@@ -511,8 +604,8 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(15, 23, 42, 0.65);
-      backdrop-filter: blur(5px);
+      background: rgba(20, 13, 30, 0.65);
+      backdrop-filter: blur(6px);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -548,20 +641,21 @@
     }
 
     .modal-header {
-      padding: 20px 24px;
+      padding: 22px 26px;
       border-bottom: 1px solid var(--card-border);
       display: flex;
       justify-content: space-between;
       align-items: center;
+      background: linear-gradient(to right, var(--primary-light), transparent);
     }
 
     .modal-body {
-      padding: 24px;
+      padding: 26px;
       overflow-y: auto;
     }
 
     .modal-footer {
-      padding: 16px 24px;
+      padding: 16px 26px;
       border-top: 1px solid var(--card-border);
       display: flex;
       justify-content: space-between;
@@ -572,12 +666,12 @@
     .modal-close-btn {
       background: transparent;
       border: none;
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       color: var(--text-muted);
       cursor: pointer;
       border-radius: 50%;
-      width: 34px;
-      height: 34px;
+      width: 36px;
+      height: 36px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -618,24 +712,25 @@
     }
 
     .section-title {
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-weight: 700;
-      color: var(--text-main);
+      color: var(--primary);
       margin-bottom: 8px;
       display: flex;
       align-items: center;
       gap: 6px;
+      letter-spacing: 0.03em;
     }
 
     .section-content-box {
       background: var(--bg);
       border: 1px solid var(--card-border);
       border-radius: var(--radius-md);
-      padding: 14px 16px;
-      font-size: 0.92rem;
-      line-height: 1.6;
+      padding: 16px 18px;
+      font-size: 0.94rem;
+      line-height: 1.7;
       white-space: pre-wrap;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
     }
 
     /* Lightbox */
@@ -645,7 +740,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(0, 0, 0, 0.94);
+      background: rgba(15, 8, 24, 0.94);
       backdrop-filter: blur(8px);
       z-index: 2000;
       display: flex;
@@ -673,7 +768,7 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.18);
       border: none;
       color: white;
       font-size: 2rem;
@@ -692,7 +787,7 @@
       position: absolute;
       top: 24px;
       right: 24px;
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.18);
       border: none;
       color: white;
       font-size: 1.6rem;
@@ -708,42 +803,44 @@
       color: white;
       font-size: 0.9rem;
       background: rgba(0, 0, 0, 0.6);
-      padding: 6px 16px;
+      padding: 6px 18px;
       border-radius: 999px;
+      letter-spacing: 0.04em;
     }
 
     /* Forms */
     .form-group { margin-bottom: 16px; }
-    .form-label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; }
+    .form-label { display: block; font-size: 0.86rem; font-weight: 700; margin-bottom: 6px; color: var(--text-main); }
     .form-control {
       width: 100%;
-      padding: 9px 12px;
+      padding: 10px 14px;
       border-radius: var(--radius-sm);
       border: 1px solid var(--card-border);
       background: var(--bg);
       color: var(--text-main);
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       outline: none;
     }
     .form-control:focus { border-color: var(--primary); }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    textarea.form-control { min-height: 90px; resize: vertical; }
+    textarea.form-control { min-height: 95px; resize: vertical; }
 
     /* Toast */
     .toast {
       position: fixed;
       bottom: 24px;
       right: 24px;
-      background: #1e293b;
+      background: var(--primary);
       color: white;
-      padding: 12px 20px;
-      border-radius: var(--radius-md);
+      padding: 12px 22px;
+      border-radius: 999px;
       box-shadow: var(--shadow-lg);
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       transform: translateY(100px);
       opacity: 0;
       transition: all 0.3s;
       z-index: 3000;
+      letter-spacing: 0.03em;
     }
     .toast.show { transform: translateY(0); opacity: 1; }
   </style>
@@ -751,16 +848,22 @@
 <body>
 
 <div class="container">
-  <!-- Top Header -->
+  <!-- Classical Header -->
   <header class="top-header">
-    <div class="header-title">
-      <h1><span>🎓</span> 教育實習活動歷程日誌</h1>
-      <p>按月份檢視實習行程與活動紀錄 · 點擊行程即可查看活動照片與心得說明</p>
+    <div class="header-branding">
+      <div class="chinese-seal">
+        <span>國文</span>
+        <span>實習</span>
+      </div>
+      <div class="header-title">
+        <h1>師道傳燈 · 國文教育實習錄</h1>
+        <p>桃李不言 下自成蹊 · 捌月至拾貳月實習活動紀事</p>
+      </div>
     </div>
     
     <div class="header-actions">
       <button class="btn btn-primary" onclick="openAddModal()">
-        <span>➕</span> 新增實習行程
+        <span>🖋️</span> 新增實習紀事
       </button>
       <button class="btn-icon" id="themeToggle" onclick="toggleTheme()" title="切換深色/淺色模式">
         🌙
@@ -771,7 +874,7 @@
     </div>
   </header>
 
-  <!-- Month Selector Tabs (8月～12月 / 1月) -->
+  <!-- Month Selector Tabs (8月～12月 / 1月) - 古典雅稱 -->
   <section class="month-nav-container">
     <div class="month-tabs" id="monthTabs">
       <!-- Generated via JS -->
@@ -781,12 +884,12 @@
   <!-- Month Banner & Stats -->
   <section class="month-banner">
     <div class="month-banner-title">
-      <h2 id="currentMonthTitle">🗓️ 8 月份實習活動</h2>
-      <p id="currentMonthDesc">開學前行政籌備、專業增能研習與大學參訪</p>
+      <h2 id="currentMonthTitle">🗓️ 捌月 · 孟秋紀事</h2>
+      <p id="currentMonthDesc">開學前行政籌備、專業增能研習與大學參訪交流</p>
     </div>
     <div class="month-stats-badge">
-      <div class="badge-pill">📌 <span id="monthEventCount">4</span> 項活動行程</div>
-      <div class="badge-pill">📷 <span id="monthPhotoCount">7</span> 張紀錄照片</div>
+      <div class="badge-pill">🪶 <span id="monthEventCount">4</span> 項實習活動</div>
+      <div class="badge-pill">📷 <span id="monthPhotoCount">7</span> 張紀錄相片</div>
     </div>
   </section>
 
@@ -794,13 +897,13 @@
   <section class="filter-bar">
     <div class="category-pills">
       <button class="cat-pill active" onclick="setCategoryFilter('all', this)">全部面向</button>
-      <button class="cat-pill" onclick="setCategoryFilter('研習與專業成長', this)">🟣 研習與專業成長</button>
+      <button class="cat-pill" onclick="setCategoryFilter('研習與專業成長', this)">🟣 研習增能</button>
       <button class="cat-pill" onclick="setCategoryFilter('行政實習', this)">📘 行政實習</button>
-      <button class="cat-pill" onclick="setCategoryFilter('教學實習', this)">📗 教學實習</button>
+      <button class="cat-pill" onclick="setCategoryFilter('教學實習', this)">🌸 教學實習</button>
       <button class="cat-pill" onclick="setCategoryFilter('導師實習', this)">📙 導師實習</button>
     </div>
 
-    <input type="text" id="searchInput" class="search-input" placeholder="🔍 搜尋行程、主題或關鍵字..." oninput="handleSearch()">
+    <input type="text" id="searchInput" class="search-input" placeholder="🔍 搜尋行程、主題或心得關鍵字..." oninput="handleSearch()">
   </section>
 
   <!-- Main Itinerary / Events List -->
@@ -817,14 +920,14 @@
     <div class="modal-header">
       <div style="display: flex; align-items: center; gap: 10px;">
         <span id="detailCatBadge" class="cat-badge"></span>
-        <h3 id="detailTitle" style="font-size: 1.25rem; font-weight: 700;"></h3>
+        <h3 id="detailTitle" style="font-size: 1.3rem; font-weight: 700; color: var(--primary);"></h3>
       </div>
       <button class="modal-close-btn" onclick="closeModal('detailModal')">&times;</button>
     </div>
     
     <div class="modal-body">
       <!-- Meta Information -->
-      <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 18px; font-size: 0.88rem; color: var(--text-muted); padding-bottom: 12px; border-bottom: 1px dashed var(--card-border);">
+      <div style="display: flex; flex-wrap: wrap; gap: 18px; margin-bottom: 18px; font-size: 0.88rem; color: var(--text-muted); padding-bottom: 14px; border-bottom: 1px dashed var(--card-border);">
         <div>📅 <strong>活動日期：</strong><span id="detailDate"></span></div>
         <div>📍 <strong>活動地點：</strong><span id="detailLocation"></span></div>
         <div>👥 <strong>參與對象：</strong><span id="detailAttendees"></span></div>
@@ -832,26 +935,26 @@
 
       <!-- Photos Section -->
       <div id="detailPhotosSection">
-        <div class="section-title">📷 現場活動相片 (<span id="detailPhotoCount">0</span>)</div>
+        <div class="section-title">📷 現場活動影音紀錄 (<span id="detailPhotoCount">0</span>)</div>
         <div class="detail-gallery" id="detailGallery"></div>
       </div>
 
       <!-- Description Section -->
       <div>
-        <div class="section-title">📝 活動內容與過程說明</div>
+        <div class="section-title">📜 活動歷程與內容紀要</div>
         <div class="section-content-box" id="detailDescription"></div>
       </div>
 
       <!-- Reflection Section -->
       <div>
-        <div class="section-title">💡 實習心得與教學省思 (Practicum Reflection)</div>
-        <div class="section-content-box" id="detailReflection" style="border-left: 4px solid var(--primary); background: var(--primary-light);"></div>
+        <div class="section-title">💡 師道省思 · 課堂微言 (Practicum Reflection)</div>
+        <div class="section-content-box" id="detailReflection" style="border-left: 4px solid var(--accent-pink); background: var(--accent-pink-light);"></div>
       </div>
     </div>
 
     <div class="modal-footer">
       <div style="display: flex; gap: 8px;">
-        <button class="btn btn-secondary" onclick="handleEditCurrentActivity()">✏️ 編輯行程</button>
+        <button class="btn btn-secondary" onclick="handleEditCurrentActivity()">✏️ 編輯紀事</button>
         <button class="btn btn-secondary" style="color: #ef4444; border-color: #fca5a5;" onclick="handleDeleteCurrentActivity()">🗑️ 刪除</button>
       </div>
       <button class="btn btn-primary" onclick="closeModal('detailModal')">關閉</button>
@@ -863,7 +966,7 @@
 <div id="formModal" class="modal-backdrop" onclick="closeModalOnBackdrop(event, 'formModal')">
   <div class="modal-window">
     <div class="modal-header">
-      <h3 id="formModalTitle">➕ 新增實習行程紀錄</h3>
+      <h3 id="formModalTitle" style="color: var(--primary);">🖋️ 新增國文實習紀事</h3>
       <button class="modal-close-btn" onclick="closeModal('formModal')">&times;</button>
     </div>
     <form id="activityForm" onsubmit="saveActivity(event)">
@@ -871,17 +974,17 @@
       <div class="modal-body">
         <div class="form-group">
           <label class="form-label">活動主題 / 名稱 <span style="color:red">*</span></label>
-          <input type="text" id="formTitle" class="form-control" placeholder="例如：0806東華大學物理系光實驗參訪" required>
+          <input type="text" id="formTitle" class="form-control" placeholder="例如：0806東華大學物理系光實驗參訪 / 國文科備課研討" required>
         </div>
 
         <div class="form-row">
           <div class="form-group">
             <label class="form-label">實習面向分類 <span style="color:red">*</span></label>
             <select id="formCategory" class="form-control" required>
-              <option value="研習與專業成長">🟣 研習與專業成長</option>
-              <option value="行政實習">📘 行政實習</option>
-              <option value="教學實習">📗 教學實習</option>
+              <option value="研習與專業成長">🟣 研習增能</option>
+              <option value="教學實習">🌸 教學實習</option>
               <option value="導師實習">📙 導師實習</option>
+              <option value="行政實習">📘 行政實習</option>
             </select>
           </div>
           <div class="form-group">
@@ -893,32 +996,32 @@
         <div class="form-row">
           <div class="form-group">
             <label class="form-label">活動地點</label>
-            <input type="text" id="formLocation" class="form-control" placeholder="例如：東華大學物理學系實驗室、校內會議室">
+            <input type="text" id="formLocation" class="form-control" placeholder="例如：東華大學物理系實驗室、校內國文科研究室">
           </div>
           <div class="form-group">
             <label class="form-label">參與對象 / 人員</label>
-            <input type="text" id="formAttendees" class="form-control" placeholder="例如：實習教師、自然科同仁">
+            <input type="text" id="formAttendees" class="form-control" placeholder="例如：實習教師、國文科同仁、指導教師">
           </div>
         </div>
 
         <div class="form-group">
-          <label class="form-label">相片相對路徑 (以逗號分隔多個照片路徑)</label>
+          <label class="form-label">相片相對路徑 (以逗號分隔多個路徑)</label>
           <input type="text" id="formPhotos" class="form-control" placeholder="例如：0806東華大學物理系光實驗參訪/IMG_8164.JPG, 0806東華大學物理系光實驗參訪/IMG_8165.JPG">
         </div>
 
         <div class="form-group">
-          <label class="form-label">活動內容說明與流程紀錄</label>
+          <label class="form-label">活動內容說明與流程紀要</label>
           <textarea id="formDescription" class="form-control" placeholder="請詳細記錄本次活動的流程、討論重點、觀察所得或具體執行項目..."></textarea>
         </div>
 
         <div class="form-group">
-          <label class="form-label">實習心得與教學省思 (Reflection)</label>
-          <textarea id="formReflection" class="form-control" placeholder="請記錄本次活動的心得、教學啟發與省思..."></textarea>
+          <label class="form-label">師道省思 · 實習心得 (Reflection)</label>
+          <textarea id="formReflection" class="form-control" placeholder="請記錄本次活動對文學教學、班級經營或教育理念帶來的啟發與省思..."></textarea>
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" onclick="closeModal('formModal')">取消</button>
-        <button type="submit" class="btn btn-primary">💾 儲存行程</button>
+        <button type="submit" class="btn btn-primary">💾 儲存紀事</button>
       </div>
     </form>
   </div>
@@ -928,7 +1031,7 @@
 <div id="settingsModal" class="modal-backdrop" onclick="closeModalOnBackdrop(event, 'settingsModal')">
   <div class="modal-window" style="max-width: 500px;">
     <div class="modal-header">
-      <h3>⚙️ 資料管理與備份</h3>
+      <h3 style="color: var(--primary);">⚙️ 資料管理與備份</h3>
       <button class="modal-close-btn" onclick="closeModal('settingsModal')">&times;</button>
     </div>
     <div class="modal-body">
@@ -964,11 +1067,11 @@
 </div>
 
 <!-- TOAST -->
-<div id="toast" class="toast">✅ 操作成功</div>
+<div id="toast" class="toast">🌸 操作成功</div>
 
 <script>
 // ==========================================
-// 1. 預設資料 (Initial Default Practicum Data)
+// 1. 預設資料 (Initial Practicum Data)
 // ==========================================
 const DEFAULT_ACTIVITIES = [
   {
@@ -984,8 +1087,8 @@ const DEFAULT_ACTIVITIES = [
       "0806東華大學物理系光實驗參訪/IMG_8165.JPG",
       "0806東華大學物理系光實驗參訪/IMG_8166.JPG"
     ],
-    description: "實地參訪國立東華大學物理學系先進光學與光電實驗室。觀摩精密雷射光學干涉繞射實驗儀器、光譜儀演示以及現代物理前沿教學模組。與大學教授及系所研究團隊交流如何將高階光學實驗概念轉化為適合國高中探究與實作之教學教案。",
-    reflection: "【教學啟發與省思】\n1. 透過大學端高階光學實驗的參訪，深化了自身對幾何光學與波動光學原理的直觀理解。\n2. 思考如何設計平價化、微型化的自製教具（例如使用簡易雷射筆與光碟片光柵），引導中學生在課堂中體會光學干涉現象，提升探究與實作興趣。\n3. 大學端的科學探究精神可作為未來引導學生專題研究與科展培訓之重要借鏡。"
+    description: "實地參訪國立東華大學物理學系先進光學與光電實驗室。觀摩精密雷射光學干涉繞射實驗儀器、光譜儀演示以及現代物理前沿教學模組。與大學教授及系所研究團隊交流跨領域科學探究與實作之教學教案轉化。",
+    reflection: "【跨領域教學啟發與省思】\n1. 透過光學實驗的觀察，體會到格物致知的科學精神，亦啟發自己在國文古典詩詞（如蘇軾《赤壁賦》「水光接天」）中融入跨領域科學情境教學之靈感。\n2. 思考如何設計兼具文理交融的探究活動，引導中學生在文本閱讀中體會意象與自然原理之美。\n3. 參訪中大學端嚴謹的治學態度，深感教學相長，為教育實習之初注入豐富的跨域視野。"
   },
   {
     id: "act-0810",
@@ -997,7 +1100,7 @@ const DEFAULT_ACTIVITIES = [
     folder: "0810協助新生編班會議",
     photos: [],
     description: "協助教務處辦理全校國/高中新生常態編班暨導師抽籤作業會議。全程參與編班名冊核對、常態編班電腦亂數派班流程、特殊生及雙胞胎安置原則討論，以及新生導師班級公開抽籤見證。",
-    reflection: "【行政知能與省思】\n1. 理解教育部「常態編班及分組學習準則」之法規意涵，親身體會學校行政在維護教育公平與公開透明原則上的嚴謹流程。\n2. 觀察教務主任與行政同仁如何與新生導師及家長代表進行良性溝通，協調特教學生安置與個別化需求。\n3. 學習到校務行政系統操作要領與大型會議行政前置準備（會議手冊、籤筒、投影即時確認）之SOP細節。"
+    reflection: "【行政知能與省思】\n1. 理解教育部「常態編班及分組學習準則」之法規意涵，親身體會學校行政在維護教育公平與公開透明原則上的嚴謹流程。\n2. 觀察教務主任與行政同仁如何與新生導師及家長代表進行良性溝通，協調特教學生安置與個別化需求。\n3. 學習到校務行政系統操作要領與大型會議行政前置準備之細節，深感行政乃教學之最堅實後盾。"
   },
   {
     id: "act-0811",
@@ -1013,33 +1116,33 @@ const DEFAULT_ACTIVITIES = [
       "0811御風輪參訪/IMG_8171.JPG"
     ],
     description: "前往御風輪綠色能源科技展示中心與風力發電機組基地進行戶外專業增能研習。深入認識風力葉片流體力學設計、發電機組機電整合結構、綠能發電效率監測系統，以及在地永續能源發展現況。",
-    reflection: "【跨領域課程研發省思】\n1. 御風輪的機械機構與流體力學原理，是結合中學物理「能量轉換、力矩與角動量」的最佳生活化跨領域情境素材。\n2. 可結合聯合國永續發展目標 SDGs 7 (可負擔的潔淨能源) 與 SDGs 13 (氣候行動)，規劃一系列跨物理、地科與科技領域的 STEM 跨領域主題課程。\n3. 戶外科技參訪不僅開拓實習教師的工程科技視野，也為未來帶領學生進行戶外教育提供豐富的實例資源。"
+    reflection: "【環境教育與文學省思】\n1. 實地走訪風力科技設施，思索莊子《逍遙遊》「御風而行」之古今對話，思考如何在國文課中引導學生連結生態永續與古典文學智慧。\n2. 可結合 SDGs 7 (可負擔的潔淨能源) 與 SDGs 13 (氣候行動)，規劃環境文學與科技思辨之寫作教案。\n3. 戶外增能研習開拓了教師跨學科視野，為實習期間的教案研發注入多元素材。"
   },
   {
     id: "act-0828",
     title: "備課日研習",
     category: "研習與專業成長",
     date: "2026-08-28",
-    location: "學校禮堂大演講廳 & 自然科教學研究室",
+    location: "學校禮堂大演講廳 & 國文科教學研究室",
     attendees: "全校全體教職員工、各科實習教師",
     folder: "備課日研習",
     photos: [
       "備課日研習/IMG_8172.JPG"
     ],
-    description: "參與新學期全校教師備課日專業研習。上午聆聽校長校務發展報告、性別平等教育法規宣導、正向管教與特教知能研習；下午參與自然科學科教學研究會，共同審查全學期課程計畫、教學進度表、實驗器材盤點及定期評量命題配當。",
-    reflection: "【專業成長與教學準備省思】\n1. 備課日是新學期的重要啟航點，讓實習教師完整了解全校性校務運作脈絡與各處室重點推動專案。\n2. 在自然科教學研究會中，向資深輔導教師請教各單元教學難點、實驗安全防護要領與多元評量設計方式，獲益良多。\n3. 體認到教師專業社群（PLC）共同備課與協同對話的強大力量，為即將到來的教學觀課與試教做好最扎實的準備。"
+    description: "參與新學期全校教師備課日專業研習。上午聆聽校長校務發展報告、性別平等教育法規宣導、正向管教與特教知能研習；下午參與國文科教學研究會，共同審查全學期課程計畫、教學進度表、閱讀推廣活動及定期評量命題配當。",
+    reflection: "【師道薪傳與備課省思】\n1. 備課日乃新學期揚帆之始，完整掌握校務運作脈絡與處室重點計畫。\n2. 在國文科教學研究會中，向資深國文輔導教師請教古文教學脈絡引導、寫作批改技巧與素養導向命題原則，收穫良多。\n3. 體認到教師專業社群（PLC）協同備課與共讀共思的力量，為開學後的觀課、備課與試教奠定最扎實之根基。"
   }
 ];
 
-// Months configuration (8月 ~ 12月 / 1月 / 全部)
+// Months configuration (8月～12月 / 1月 / 全部) - 中國風雅稱
 const MONTHS_CONFIG = [
-  { id: "8", label: "8 月", en: "August", desc: "暑期增能研習、新生編班會議與全校備課日" },
-  { id: "9", label: "9 月", en: "September", desc: "新學期開學、班級經營啟動與入班觀課" },
-  { id: "10", label: "10 月", en: "October", desc: "第一次定期評量、試教與全校性活動" },
-  { id: "11", label: "11 月", en: "November", desc: "期中教學演示、公開觀課與親師座談" },
-  { id: "12", label: "12 月", en: "December", desc: "第二次定期評量、處室行政輪調與課程回顧" },
-  { id: "1", label: "1 月", en: "January", desc: "期末評量結算、實習總結與檔案冊整理" },
-  { id: "all", label: "全部", en: "All Months", desc: "檢視教育實習期間所有月份的完整行程" }
+  { id: "8", label: "捌月", en: "孟秋", desc: "暑期增能研習、新生編班會議與全校備課日" },
+  { id: "9", label: "玖月", en: "仲秋", desc: "新學期開學、班級經營啟動與入班觀課見習" },
+  { id: "10", label: "拾月", en: "季秋", desc: "第一次定期評量、公開試教與全校性文藝活動" },
+  { id: "11", label: "拾壹月", en: "孟冬", desc: "期中教學演示、公開觀課指導與親師座談" },
+  { id: "12", label: "拾貳月", en: "仲冬", desc: "第二次定期評量、處室行政輪調與課程總複習" },
+  { id: "1", label: "元月", en: "季冬", desc: "期末評量結算、實習總結反思與檔案冊彙整" },
+  { id: "all", label: "全期", en: "總覽", desc: "檢視教育實習期間所有月份之完整紀事" }
 ];
 
 let activities = [];
@@ -1099,7 +1202,7 @@ function renderMonthTabs() {
 
   // Update Month Banner
   const currentCfg = MONTHS_CONFIG.find(m => m.id === selectedMonth) || MONTHS_CONFIG[0];
-  document.getElementById('currentMonthTitle').textContent = `🗓️ ${currentCfg.label} 實習行程與活動`;
+  document.getElementById('currentMonthTitle').textContent = `🗓️ ${currentCfg.label} · ${currentCfg.en}紀事`;
   document.getElementById('currentMonthDesc').textContent = currentCfg.desc;
 }
 
@@ -1132,7 +1235,7 @@ function getWeekday(dateStr) {
 function getCategoryBadge(cat) {
   switch (cat) {
     case '行政實習': return `<span class="cat-badge badge-admin">📘 行政實習</span>`;
-    case '教學實習': return `<span class="cat-badge badge-teach">📗 教學實習</span>`;
+    case '教學實習': return `<span class="cat-badge badge-teach">🌸 教學實習</span>`;
     case '導師實習': return `<span class="cat-badge badge-mentor">📙 導師實習</span>`;
     case '研習與專業成長': return `<span class="cat-badge badge-study">🟣 研習增能</span>`;
     default: return `<span class="cat-badge badge-study">🟣 ${cat}</span>`;
@@ -1180,14 +1283,14 @@ function renderEvents() {
   const container = document.getElementById('eventsList');
 
   if (list.length === 0) {
-    const monthName = selectedMonth === 'all' ? '' : `${selectedMonth} 月`;
+    const currentCfg = MONTHS_CONFIG.find(m => m.id === selectedMonth) || { label: '' };
     container.innerHTML = `
       <div class="empty-state">
-        <div class="empty-icon">📅</div>
-        <h3>${monthName} 目前尚無已登錄的實習行程</h3>
-        <p style="color: var(--text-muted); margin: 8px 0 16px 0;">點擊下方按鈕即可為此月份新增活動、會議或研習紀錄！</p>
+        <div class="empty-icon">🪶</div>
+        <h3 style="color: var(--primary);">${currentCfg.label} 目前尚無已登錄之實習紀事</h3>
+        <p style="color: var(--text-muted); margin: 8px 0 16px 0;">點擊下方按鈕即可為此月份新增備課、觀課、試教或研習紀錄！</p>
         <button class="btn btn-primary" onclick="openAddModalForMonth('${selectedMonth}')">
-          ➕ 新增 ${monthName} 活動行程
+          🖋️ 新增 ${currentCfg.label} 實習紀事
         </button>
       </div>
     `;
@@ -1218,7 +1321,7 @@ function renderEvents() {
             ${act.location ? `<span class="event-location">📍 ${act.location}</span>` : ''}
           </div>
           <h3 class="event-title">${act.title}</h3>
-          <p class="event-summary">${act.description || '點擊查看詳細說明與照片...'}</p>
+          <p class="event-summary">${act.description || '點擊查看詳細紀要與照片...'}</p>
         </div>
 
         <!-- Action / Photo indicator -->
@@ -1226,7 +1329,7 @@ function renderEvents() {
           ${photoCount > 0 ? `
             <span class="photo-indicator">📷 ${photoCount} 張相片</span>
           ` : `
-            <span class="photo-indicator" style="opacity: 0.7;">📝 詳細說明</span>
+            <span class="photo-indicator" style="opacity: 0.7;">📝 詳細紀要</span>
           `}
           <span class="view-arrow">查看照片與說明 ➔</span>
         </div>
@@ -1243,7 +1346,6 @@ function openDetailModal(id) {
   activeDetailActivity = act;
 
   document.getElementById('detailCatBadge').outerHTML = getCategoryBadge(act.category);
-  // Re-fetch badge span
   const newBadge = document.querySelector('.modal-header .cat-badge');
   if (newBadge) newBadge.id = 'detailCatBadge';
 
@@ -1252,8 +1354,8 @@ function openDetailModal(id) {
   document.getElementById('detailLocation').textContent = act.location || '校內 / 未填寫';
   document.getElementById('detailAttendees').textContent = act.attendees || '實習教師';
   
-  document.getElementById('detailDescription').textContent = act.description || '（無內容說明）';
-  document.getElementById('detailReflection').textContent = act.reflection || '（尚未填寫心得省思）';
+  document.getElementById('detailDescription').textContent = act.description || '（無活動內容說明）';
+  document.getElementById('detailReflection').textContent = act.reflection || '（尚未填寫師道省思）';
 
   // Photos Gallery
   const photosSection = document.getElementById('detailPhotosSection');
@@ -1283,11 +1385,11 @@ function handleEditCurrentActivity() {
 
 function handleDeleteCurrentActivity() {
   if (!activeDetailActivity) return;
-  if (confirm(`確定要刪除「${activeDetailActivity.title}」這筆行程嗎？`)) {
+  if (confirm(`確定要刪除「${activeDetailActivity.title}」這筆紀事嗎？`)) {
     activities = activities.filter(a => a.id !== activeDetailActivity.id);
     saveData();
     closeModal('detailModal');
-    showToast('🗑️ 行程已成功刪除');
+    showToast('🗑️ 紀事已成功刪除');
   }
 }
 
@@ -1297,11 +1399,10 @@ function openAddModal() {
 }
 
 function openAddModalForMonth(monthNum) {
-  document.getElementById('formModalTitle').textContent = '➕ 新增實習行程紀錄';
+  document.getElementById('formModalTitle').textContent = '🖋️ 新增國文實習紀事';
   document.getElementById('activityForm').reset();
   document.getElementById('formActivityId').value = '';
   
-  // Set default date to that month
   const m = monthNum.padStart(2, '0');
   const defaultDate = `2026-${m}-01`;
   document.getElementById('formDate').value = defaultDate;
@@ -1309,7 +1410,7 @@ function openAddModalForMonth(monthNum) {
 }
 
 function openEditModal(act) {
-  document.getElementById('formModalTitle').textContent = '✏️ 編輯實習行程紀錄';
+  document.getElementById('formModalTitle').textContent = '✏️ 編輯國文實習紀事';
   document.getElementById('formActivityId').value = act.id;
   document.getElementById('formTitle').value = act.title || '';
   document.getElementById('formCategory').value = act.category || '研習與專業成長';
@@ -1341,7 +1442,7 @@ function saveActivity(e) {
     const idx = activities.findIndex(a => a.id === id);
     if (idx !== -1) {
       activities[idx] = { ...activities[idx], title, category, date, location, attendees, photos, description, reflection };
-      showToast('✅ 行程紀錄已更新');
+      showToast('🌸 紀事已成功更新');
     }
   } else {
     const newAct = {
@@ -1356,7 +1457,7 @@ function saveActivity(e) {
       reflection
     };
     activities.push(newAct);
-    showToast('🎉 行程新增成功');
+    showToast('🌸 紀事新增成功');
   }
 
   saveData();
@@ -1430,7 +1531,7 @@ function exportData() {
   const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(activities, null, 2));
   const a = document.createElement('a');
   a.href = dataStr;
-  a.download = `教育實習活動日誌備份_${new Date().toISOString().split('T')[0]}.json`;
+  a.download = `國文教育實習錄備份_${new Date().toISOString().split('T')[0]}.json`;
   a.click();
   showToast('📥 備份檔已匯出');
 }
@@ -1456,7 +1557,7 @@ function importData(e) {
 }
 
 function resetToDefault() {
-  if (confirm('確定要重設為初始 4 大預設行程嗎？')) {
+  if (confirm('確定要重設為初始 4 大預設紀事嗎？')) {
     activities = JSON.parse(JSON.stringify(DEFAULT_ACTIVITIES));
     saveData();
     closeModal('settingsModal');
