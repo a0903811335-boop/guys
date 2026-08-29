@@ -1162,6 +1162,20 @@ const DEFAULT_ACTIVITIES = [
     reflection: "【多元文化與戶外教育省思】\n1. 透過秀姑巒溪自行車踏查與大庄公廨走訪，深入體認花東縱谷豐富的地理生態與原住民族/平埔族群多元文化脈絡，為未來國文鄉土文學與在地走讀教案提供生動素材。\n2. 參訪安德啟智中心與劉一峰神父二手物流館，深刻看見弱勢關懷與資源循環重生的教育意義，啟發自身在班級經營與生命教育上的同理心與教育情懷。\n3. 校外教學活動不僅能增進師生情誼，更能將課堂知識延伸至生活真實情境，是極具價值的全人教育歷程。"
   },
   {
+    id: "act-0825",
+    title: "0825協助新生訓練",
+    category: "導師實習",
+    date: "2026-08-25",
+    location: "學校大禮堂 / 各班教室",
+    attendees: "學務處同仁、新生導師群、實習教師、全體國高中新生",
+    folder: "0825協助新生訓練",
+    photos: [
+      "0825協助新生訓練/IMG_8118.JPG"
+    ],
+    description: "協助學務處與新生導師辦理全校國/高中新生始業輔導訓練。協助引導新生報到進班、校園環境與處室巡禮認識、校規與生活常規宣導、班級幹部遴選指導及校歌練唱，協助新生順利銜接並適應國高中校園生活。",
+    reflection: "【導師班級經營與輔導省思】\n1. 透過協助新生訓練，近距離觀察資深導師如何在開學第一天建立班級默契、制定班級常規與營造溫暖正向的班級氛圍。\n2. 深刻體會到新生剛踏入新階段時的不安與期待，身為實習教師應以耐性與同理心傾聽，給予適時的指引與關懷。\n3. 學習到大型學務活動之分工協調與突發狀況應變要領，為未來的導師實習與班級經營累積寶貴的實務經驗。"
+  },
+  {
     id: "act-0828",
     title: "備課日研習",
     category: "研習與專業成長",
@@ -1209,7 +1223,7 @@ function loadData() {
   const saved = localStorage.getItem('practicum_activities');
   activities = saved ? JSON.parse(saved) : JSON.parse(JSON.stringify(DEFAULT_ACTIVITIES));
   
-  // 確保 0804, 0806, 0811, 0814 均劃入校外教學活動
+  // 確保 0804, 0814, 0825 自動同步
   const act0804 = DEFAULT_ACTIVITIES.find(a => a.id === 'act-0804');
   if (!activities.some(a => a.id === 'act-0804') && act0804) {
     activities.unshift(act0804);
@@ -1217,6 +1231,10 @@ function loadData() {
   const act0814 = DEFAULT_ACTIVITIES.find(a => a.id === 'act-0814');
   if (!activities.some(a => a.id === 'act-0814') && act0814) {
     activities.push(act0814);
+  }
+  const act0825 = DEFAULT_ACTIVITIES.find(a => a.id === 'act-0825');
+  if (!activities.some(a => a.id === 'act-0825') && act0825) {
+    activities.push(act0825);
   }
 
   // 同步分類
