@@ -1104,7 +1104,7 @@ const DEFAULT_ACTIVITIES = [
   },
   {
     id: "act-0806",
-    title: "0806東華大學物理系光實驗參訪",
+    title: "東華大學物理系參訪",
     category: "校外教學活動",
     date: "2026-08-06",
     location: "國立東華大學 物理學系 光電實驗室",
@@ -1237,10 +1237,13 @@ function loadData() {
     activities.push(act0825);
   }
 
-  // 同步分類
+  // 同步分類與標題
   activities.forEach(a => {
     if (a.id === 'act-0804' || a.id === 'act-0806' || a.id === 'act-0811' || a.id === 'act-0814') {
       a.category = '校外教學活動';
+    }
+    if (a.id === 'act-0806') {
+      a.title = '東華大學物理系參訪';
     }
   });
 
