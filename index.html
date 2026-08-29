@@ -27,6 +27,8 @@
       --seal-red: #c0392b;
       --seal-bg: #fdf2f0;
 
+      --cat-outdoor: #0d9488;
+      --cat-outdoor-bg: #f0fdfa;
       --cat-study: #8a4ba0;
       --cat-study-bg: #f7edfd;
       --cat-teach: #c04874;
@@ -63,6 +65,7 @@
       --accent-pink-light: #321626;
       --accent-pink-border: #5c2443;
 
+      --cat-outdoor-bg: #0f2d29;
       --cat-study-bg: #2d163d;
       --cat-teach-bg: #381525;
       --cat-mentor-bg: #3b1e10;
@@ -522,6 +525,7 @@
       letter-spacing: 0.03em;
     }
 
+    .badge-outdoor { background: var(--cat-outdoor-bg); color: var(--cat-outdoor); border: 1px solid #99f6e4; }
     .badge-study { background: var(--cat-study-bg); color: var(--cat-study); border: 1px solid var(--primary-border); }
     .badge-teach { background: var(--cat-teach-bg); color: var(--cat-teach); border: 1px solid var(--accent-pink-border); }
     .badge-mentor { background: var(--cat-mentor-bg); color: var(--cat-mentor); border: 1px solid #fde2cc; }
@@ -897,6 +901,7 @@
   <section class="filter-bar">
     <div class="category-pills">
       <button class="cat-pill active" onclick="setCategoryFilter('all', this)">全部面向</button>
+      <button class="cat-pill" onclick="setCategoryFilter('校外教學活動', this)">🚌 校外教學</button>
       <button class="cat-pill" onclick="setCategoryFilter('研習與專業成長', this)">🟣 研習紀錄</button>
       <button class="cat-pill" onclick="setCategoryFilter('行政實習', this)">📘 行政實習</button>
       <button class="cat-pill" onclick="setCategoryFilter('教學實習', this)">🌸 教學實習</button>
@@ -981,6 +986,7 @@
           <div class="form-group">
             <label class="form-label">實習面向分類 <span style="color:red">*</span></label>
             <select id="formCategory" class="form-control" required>
+              <option value="校外教學活動">🚌 校外教學</option>
               <option value="研習與專業成長">🟣 研習紀錄</option>
               <option value="教學實習">🌸 教學實習</option>
               <option value="導師實習">📙 導師實習</option>
@@ -1075,9 +1081,31 @@
 // ==========================================
 const DEFAULT_ACTIVITIES = [
   {
+    id: "act-0804",
+    title: "0804大同戲院藝術活動校外教學",
+    category: "校外教學活動",
+    date: "2026-08-04",
+    location: "花蓮大同戲院 / 藝文歷史空間",
+    attendees: "實習教師、校內師生團隊、在地藝文策展人",
+    folder: "0804大同戲院藝術活動校外教學",
+    photos: [
+      "0804大同戲院藝術活動校外教學/0B702AF6-6410-45AA-8DA0-4E5961B20AE2.JPEG",
+      "0804大同戲院藝術活動校外教學/0FD40953-D5B9-4E08-B7F9-A8D43AF2DC29.JPEG",
+      "0804大同戲院藝術活動校外教學/1C5E2FAD-9DCB-43A1-9162-E6684E991DD7.JPEG",
+      "0804大同戲院藝術活動校外教學/6D4E4EB6-77B6-423D-8785-5ED57213333E.JPEG",
+      "0804大同戲院藝術活動校外教學/718EAA5B-D8C6-4072-ADBB-0D601F0383E6.JPEG",
+      "0804大同戲院藝術活動校外教學/806EDF54-BA2F-44EC-AD11-6CD73E18EA9E.JPEG",
+      "0804大同戲院藝術活動校外教學/IMG_7890.JPG",
+      "0804大同戲院藝術活動校外教學/IMG_7891.JPG",
+      "0804大同戲院藝術活動校外教學/IMG_7892.JPG"
+    ],
+    description: "參與大同戲院藝文空間走讀與藝術活動校外教學，深入認識在地歷史老戲院建築活化、地方文化記憶保存與多元藝術展演形式，探討如何將在地文化歷史情境融入中學國文與藝術跨領域課程。",
+    reflection: "【美感教育與地方走讀省思】\n1. 透過走訪歷史悠久的大同戲院，親身感受老建築重獲新生的文化生命力，深刻體會到「地方即教室」的戶外教學魅力。\n2. 思考如何結合國文科散文寫作與地方走讀，引導學生細緻觀察家鄉地景與人文歷史，培養學生的美感素養與在地認同感。\n3. 藝術校外教學打破了傳統教室的疆界，為師生創造共感共學的深厚體驗。"
+  },
+  {
     id: "act-0806",
     title: "0806東華大學物理系光實驗參訪",
-    category: "研習與專業成長",
+    category: "校外教學活動",
     date: "2026-08-06",
     location: "國立東華大學 物理學系 光電實驗室",
     attendees: "實習教師、自然科學科教師群、大學教授",
@@ -1108,7 +1136,7 @@ const DEFAULT_ACTIVITIES = [
   {
     id: "act-0811",
     title: "0811御風輪參訪",
-    category: "研習與專業成長",
+    category: "校外教學活動",
     date: "2026-08-11",
     location: "御風輪風力發電與綠能科技研發基地",
     attendees: "實習教師、自然與科技領域教師、研習講師",
@@ -1124,7 +1152,7 @@ const DEFAULT_ACTIVITIES = [
   {
     id: "act-0814",
     title: "0814玉里秀姑巒溪自行車校外教學、安德啟智中心參訪、劉神父二手物流館、西拉雅大庄公廨",
-    category: "研習與專業成長",
+    category: "校外教學活動",
     date: "2026-08-14",
     location: "花蓮玉里秀姑巒溪自行車道、安德啟智中心、劉一峰神父二手物流館、富里大庄公廨",
     attendees: "實習教師、校內師生團隊、參訪機構師長",
@@ -1181,19 +1209,28 @@ function loadData() {
   const saved = localStorage.getItem('practicum_activities');
   activities = saved ? JSON.parse(saved) : JSON.parse(JSON.stringify(DEFAULT_ACTIVITIES));
   
-  // 確保 0814 與 0810 最新相片自動同步
-  if (!activities.some(a => a.id === 'act-0814')) {
-    const act0814 = DEFAULT_ACTIVITIES.find(a => a.id === 'act-0814');
-    if (act0814) activities.push(act0814);
+  // 確保 0804, 0806, 0811, 0814 均劃入校外教學活動
+  const act0804 = DEFAULT_ACTIVITIES.find(a => a.id === 'act-0804');
+  if (!activities.some(a => a.id === 'act-0804') && act0804) {
+    activities.unshift(act0804);
   }
+  const act0814 = DEFAULT_ACTIVITIES.find(a => a.id === 'act-0814');
+  if (!activities.some(a => a.id === 'act-0814') && act0814) {
+    activities.push(act0814);
+  }
+
+  // 同步分類
+  activities.forEach(a => {
+    if (a.id === 'act-0804' || a.id === 'act-0806' || a.id === 'act-0811' || a.id === 'act-0814') {
+      a.category = '校外教學活動';
+    }
+  });
+
   const act0810 = activities.find(a => a.id === 'act-0810');
   if (act0810 && (!act0810.photos || act0810.photos.length === 0)) {
     act0810.photos = ["0810協助新生編班會議/IMG_8167.JPG", "0810協助新生編班會議/IMG_8168.JPG"];
   }
-  const act0806 = activities.find(a => a.id === 'act-0806');
-  if (act0806) {
-    act0806.reflection = DEFAULT_ACTIVITIES[0].reflection;
-  }
+
   localStorage.setItem('practicum_activities', JSON.stringify(activities));
 }
 
@@ -1264,6 +1301,8 @@ function getWeekday(dateStr) {
 
 function getCategoryBadge(cat) {
   switch (cat) {
+    case '校外教學活動':
+    case '校外教學': return `<span class="cat-badge badge-outdoor">🚌 校外教學</span>`;
     case '行政實習': return `<span class="cat-badge badge-admin">📘 行政實習</span>`;
     case '教學實習': return `<span class="cat-badge badge-teach">🌸 教學實習</span>`;
     case '導師實習': return `<span class="cat-badge badge-mentor">📙 導師實習</span>`;
