@@ -358,6 +358,220 @@
       box-shadow: var(--shadow-sm);
     }
 
+    /* Calendar Card & Grid (國風雅緻實習行事曆) */
+    .calendar-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 20px 24px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .calendar-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px dashed var(--card-border);
+    }
+
+    .calendar-title {
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .calendar-nav-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cal-nav-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .cal-nav-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: rgba(138, 75, 160, 0.06);
+    }
+
+    .cal-toggle-btn {
+      background: rgba(138, 75, 160, 0.08);
+      border: 1px solid rgba(138, 75, 160, 0.25);
+      color: var(--primary);
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .cal-toggle-btn:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+    }
+
+    .cal-weekday {
+      text-align: center;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--primary);
+      padding: 8px 4px;
+      background: rgba(138, 75, 160, 0.06);
+      border-radius: 8px;
+      border: 1px solid rgba(138, 75, 160, 0.08);
+    }
+
+    .cal-weekday.weekend {
+      color: var(--accent-pink);
+    }
+
+    .cal-day-cell {
+      min-height: 86px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-sm);
+      padding: 6px 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 4px;
+      transition: all 0.22s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cal-day-cell.other-month {
+      opacity: 0.22;
+      background: rgba(0, 0, 0, 0.02);
+      cursor: default;
+    }
+
+    .cal-day-cell.today {
+      border-color: var(--accent-pink);
+    }
+
+    .cal-day-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cal-day-num {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .cal-day-cell.today .cal-day-num {
+      color: var(--accent-pink);
+    }
+
+    .cal-day-cell.has-event {
+      background: linear-gradient(135deg, rgba(138, 75, 160, 0.08) 0%, rgba(217, 101, 139, 0.08) 100%);
+      border: 1.5px solid var(--primary);
+      cursor: pointer;
+    }
+
+    .cal-day-cell.has-event:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(138, 75, 160, 0.22);
+      border-color: var(--primary-hover);
+      background: linear-gradient(135deg, rgba(138, 75, 160, 0.16) 0%, rgba(217, 101, 139, 0.16) 100%);
+      z-index: 2;
+    }
+
+    .cal-event-badge {
+      font-size: 0.72rem;
+      padding: 3px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      cursor: pointer;
+      transition: transform 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      line-height: 1.25;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .cal-event-badge:hover {
+      transform: scale(1.03);
+    }
+
+    .cal-event-badge.cat-outdoor {
+      background: rgba(33, 150, 140, 0.14);
+      color: #1b7a70;
+      border-left: 3px solid #21968c;
+    }
+    .cal-event-badge.cat-admin {
+      background: rgba(59, 130, 246, 0.14);
+      color: #1d4ed8;
+      border-left: 3px solid #3b82f6;
+    }
+    .cal-event-badge.cat-teach {
+      background: rgba(236, 72, 153, 0.14);
+      color: #be185d;
+      border-left: 3px solid #ec4899;
+    }
+    .cal-event-badge.cat-mentor {
+      background: rgba(245, 158, 11, 0.14);
+      color: #b45309;
+      border-left: 3px solid #f59e0b;
+    }
+    .cal-event-badge.cat-study {
+      background: rgba(138, 75, 160, 0.14);
+      color: var(--primary);
+      border-left: 3px solid var(--primary);
+    }
+
+    /* Mobile calendar adjustments */
+    @media (max-width: 768px) {
+      .cal-day-cell {
+        min-height: 54px;
+        padding: 3px;
+      }
+      .cal-event-badge span.badge-title {
+        display: none;
+      }
+      .cal-event-badge {
+        padding: 2px 4px;
+        justify-content: center;
+      }
+    }
+
     /* Filter & Search Bar */
     .filter-bar {
       display: flex;
@@ -897,6 +1111,25 @@
     </div>
   </section>
 
+  <!-- Interactive Monthly Practicum Calendar (國風實習行事曆) -->
+  <section class="calendar-card" id="calendarSection">
+    <div class="calendar-card-header">
+      <div class="calendar-title" id="calMonthTitle">
+        <span>📅</span> 捌月 · 孟秋日曆
+      </div>
+      <div class="calendar-nav-group">
+        <button class="cal-nav-btn" onclick="prevCalMonth()" title="切換至上一個月份">❮ 上月</button>
+        <button class="cal-nav-btn" onclick="nextCalMonth()" title="切換至下一個月份">下月 ❯</button>
+        <button class="cal-toggle-btn" id="calToggleBtn" onclick="toggleCalendarCollapse()">收合日曆 ▲</button>
+      </div>
+    </div>
+    <div id="calendarGridContainer">
+      <div class="calendar-grid" id="calendarGrid">
+        <!-- Calendar day cells dynamically rendered via JS -->
+      </div>
+    </div>
+  </section>
+
   <!-- Filter & Search Bar -->
   <section class="filter-bar">
     <div class="category-pills">
@@ -1221,6 +1454,7 @@ function init() {
   loadData();
   applyTheme();
   renderMonthTabs();
+  renderCalendar();
   renderEvents();
 }
 
@@ -1318,6 +1552,7 @@ function loadData() {
 function saveData() {
   localStorage.setItem('practicum_activities', JSON.stringify(activities));
   renderMonthTabs();
+  renderCalendar();
   renderEvents();
 }
 
@@ -1357,7 +1592,198 @@ function renderMonthTabs() {
 function selectMonth(monthId) {
   selectedMonth = monthId;
   renderMonthTabs();
+  renderCalendar();
   renderEvents();
+}
+
+// Calendar Logic
+let isCalendarCollapsed = false;
+
+function toggleCalendarCollapse() {
+  isCalendarCollapsed = !isCalendarCollapsed;
+  const grid = document.getElementById('calendarGridContainer');
+  const btn = document.getElementById('calToggleBtn');
+  if (isCalendarCollapsed) {
+    grid.style.display = 'none';
+    btn.innerHTML = '📅 展開日曆 ▼';
+  } else {
+    grid.style.display = 'block';
+    btn.innerHTML = '收合日曆 ▲';
+  }
+}
+
+function getCalYearAndMonth() {
+  let year = 2026;
+  let month = 8;
+  if (selectedMonth !== 'all') {
+    month = parseInt(selectedMonth, 10);
+    if (month === 1) year = 2027;
+  }
+  return { year, month };
+}
+
+function prevCalMonth() {
+  const { month } = getCalYearAndMonth();
+  const monthOrder = ['8', '9', '10', '11', '12', '1'];
+  const curIdx = monthOrder.indexOf(String(month));
+  if (curIdx > 0) {
+    selectMonth(monthOrder[curIdx - 1]);
+  }
+}
+
+function nextCalMonth() {
+  const { month } = getCalYearAndMonth();
+  const monthOrder = ['8', '9', '10', '11', '12', '1'];
+  const curIdx = monthOrder.indexOf(String(month));
+  if (curIdx < monthOrder.length - 1) {
+    selectMonth(monthOrder[curIdx + 1]);
+  }
+}
+
+function getCategoryClass(cat) {
+  switch (cat) {
+    case '校外教學活動':
+    case '校外教學': return 'cat-outdoor';
+    case '行政實習': return 'cat-admin';
+    case '教學實習': return 'cat-teach';
+    case '導師實習': return 'cat-mentor';
+    default: return 'cat-study';
+  }
+}
+
+function getCategoryIcon(cat) {
+  switch (cat) {
+    case '校外教學活動':
+    case '校外教學': return '🚌';
+    case '行政實習': return '📘';
+    case '教學實習': return '🌸';
+    case '導師實習': return '📙';
+    default: return '🟣';
+  }
+}
+
+function renderCalendar() {
+  const calCard = document.getElementById('calendarSection');
+  if (!calCard) return;
+
+  const { year, month } = getCalYearAndMonth();
+  const currentCfg = MONTHS_CONFIG.find(m => m.id === String(month)) || { label: `${month}月`, en: '' };
+
+  // Calculate days
+  const firstDayOfWeek = new Date(year, month - 1, 1).getDay(); // 0 is Sunday
+  const daysInMonth = new Date(year, month, 0).getDate();
+  const daysInPrevMonth = new Date(year, month - 1, 0).getDate();
+
+  // Activity count for this month
+  const monthEvents = activities.filter(a => {
+    if (!a.date) return false;
+    const parts = a.date.split('-');
+    return parseInt(parts[0], 10) === year && parseInt(parts[1], 10) === month;
+  });
+
+  // Calendar Header Title
+  document.getElementById('calMonthTitle').innerHTML = `
+    <span>📅</span> ${currentCfg.label} · ${currentCfg.en}日曆
+    <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted); margin-left: 6px;">(${year}年${month}月 · 共 ${monthEvents.length} 項實習活動)</span>
+  `;
+
+  // Build Weekday Headers
+  const weekdays = [
+    { name: '週日', weekend: true },
+    { name: '週一', weekend: false },
+    { name: '週二', weekend: false },
+    { name: '週三', weekend: false },
+    { name: '週四', weekend: false },
+    { name: '週五', weekend: false },
+    { name: '週六', weekend: true }
+  ];
+
+  let cellsHtml = weekdays.map(w => `
+    <div class="cal-weekday ${w.weekend ? 'weekend' : ''}">${w.name}</div>
+  `).join('');
+
+  // Previous month padding days
+  for (let i = firstDayOfWeek - 1; i >= 0; i--) {
+    const dayNum = daysInPrevMonth - i;
+    cellsHtml += `
+      <div class="cal-day-cell other-month">
+        <div class="cal-day-header">
+          <span class="cal-day-num">${dayNum}</span>
+        </div>
+      </div>
+    `;
+  }
+
+  // Current month days
+  const today = new Date();
+  const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+
+  for (let day = 1; day <= daysInMonth; day++) {
+    const dateStr = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+    const dayEvents = activities.filter(a => a.date === dateStr);
+    const hasEvent = dayEvents.length > 0;
+    const isToday = (dateStr === todayStr);
+
+    let eventBadgesHtml = '';
+    if (hasEvent) {
+      eventBadgesHtml = dayEvents.map(ev => {
+        const catCls = getCategoryClass(ev.category);
+        const icon = getCategoryIcon(ev.category);
+        return `
+          <div class="cal-event-badge ${catCls}" title="${ev.title} (點擊查看詳細紀要與相片)" onclick="event.stopPropagation(); openDetailModal('${ev.id}')">
+            <span>${icon}</span>
+            <span class="badge-title">${ev.title}</span>
+          </div>
+        `;
+      }).join('');
+    }
+
+    const clickAction = hasEvent
+      ? (dayEvents.length === 1 ? `onclick="openDetailModal('${dayEvents[0].id}')"` : `onclick="openDayActivities('${dateStr}')"`)
+      : `onclick="openAddModalForDate('${dateStr}')" title="點擊為此日新增實習紀事"`;
+
+    cellsHtml += `
+      <div class="cal-day-cell ${hasEvent ? 'has-event' : ''} ${isToday ? 'today' : ''}" ${clickAction}>
+        <div class="cal-day-header">
+          <span class="cal-day-num">${day}</span>
+          ${hasEvent ? `<span style="font-size: 0.72rem; color: var(--primary); font-weight: bold;">${dayEvents.length > 1 ? `${dayEvents.length}項活動` : '●'}</span>` : ''}
+        </div>
+        <div class="cal-day-events" style="display: flex; flex-direction: column; gap: 4px; margin-top: 2px;">
+          ${eventBadgesHtml}
+        </div>
+      </div>
+    `;
+  }
+
+  // Next month padding days to complete 7-column grid
+  const totalCellsSoFar = firstDayOfWeek + daysInMonth;
+  const remainingCells = (7 - (totalCellsSoFar % 7)) % 7;
+  for (let i = 1; i <= remainingCells; i++) {
+    cellsHtml += `
+      <div class="cal-day-cell other-month">
+        <div class="cal-day-header">
+          <span class="cal-day-num">${i}</span>
+        </div>
+      </div>
+    `;
+  }
+
+  document.getElementById('calendarGrid').innerHTML = cellsHtml;
+}
+
+function openDayActivities(dateStr) {
+  const dayEvents = activities.filter(a => a.date === dateStr);
+  if (dayEvents.length > 0) {
+    openDetailModal(dayEvents[0].id);
+  }
+}
+
+function openAddModalForDate(dateStr) {
+  document.getElementById('formModalTitle').textContent = '🖋️ 新增國文實習紀事';
+  document.getElementById('activityForm').reset();
+  document.getElementById('formActivityId').value = '';
+  document.getElementById('formDate').value = dateStr;
+  openModal('formModal');
 }
 
 function setCategoryFilter(cat, elem) {
