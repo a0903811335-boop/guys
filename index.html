@@ -1,0 +1,2349 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>教育實習歷程與活動檔案庫 | Practicum Portfolio</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+  <style>
+    :root {
+      --primary: #3b82f6;
+      --primary-hover: #2563eb;
+      --primary-light: #eff6ff;
+      --primary-dark: #1d4ed8;
+      
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --card-border: #e2e8f0;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --text-light: #94a3b8;
+      
+      --admin-color: #3b82f6;
+      --admin-bg: #eff6ff;
+      --admin-border: #bfdbfe;
+      
+      --teach-color: #10b981;
+      --teach-bg: #ecfdf5;
+      --teach-border: #a7f3d0;
+      
+      --mentor-color: #f59e0b;
+      --mentor-bg: #fffbeb;
+      --mentor-border: #fde68a;
+      
+      --study-color: #8b5cf6;
+      --study-bg: #f5f3ff;
+      --study-border: #ddd6fe;
+
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.06);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.04);
+      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.06);
+      
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0b0f19;
+      --card-bg: #151c2c;
+      --card-border: #232f48;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-light: #64748b;
+      
+      --primary-light: #1e293b;
+      --admin-bg: #172554;
+      --admin-border: #1e40af;
+      
+      --teach-bg: #064e3b;
+      --teach-border: #065f46;
+      
+      --mentor-bg: #451a03;
+      --mentor-border: #78350f;
+      
+      --study-bg: #2e1065;
+      --study-border: #4c1d95;
+
+      --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.4);
+      --shadow-md: 0 4px 8px -1px rgb(0 0 0 / 0.5);
+      --shadow-lg: 0 12px 20px -3px rgb(0 0 0 / 0.6);
+      --shadow-xl: 0 24px 30px -5px rgb(0 0 0 / 0.7);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      min-height: 100vh;
+      line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px 20px 80px 20px;
+    }
+
+    /* Top Navigation */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--card-border);
+      margin-bottom: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .brand-icon {
+      font-size: 28px;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      color: white;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .brand-title h1 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-title p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background-color: var(--card-bg);
+      color: var(--text-main);
+      border-color: var(--card-border);
+    }
+    .btn-secondary:hover {
+      background-color: var(--primary-light);
+      border-color: var(--primary);
+    }
+
+    .btn-icon {
+      width: 38px;
+      height: 38px;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-sm);
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: all 0.2s;
+    }
+    .btn-icon:hover {
+      background-color: var(--primary-light);
+      color: var(--primary);
+    }
+
+    /* Practicum Profile & Stat Cards */
+    .hero-panel {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .profile-info h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .profile-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .profile-tag {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .profile-tag strong {
+      color: var(--text-main);
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .stat-box {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s;
+    }
+    .stat-box:hover {
+      transform: translateY(-2px);
+    }
+
+    .stat-value {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.2;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    /* Four Pillars Progress Bar */
+    .pillars-bar {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--card-border);
+    }
+
+    .pillars-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .progress-track {
+      height: 10px;
+      background: var(--card-border);
+      border-radius: 999px;
+      display: flex;
+      overflow: hidden;
+    }
+
+    .progress-segment {
+      height: 100%;
+      transition: width 0.4s ease;
+      position: relative;
+    }
+
+    .seg-admin { background-color: var(--admin-color); }
+    .seg-teach { background-color: var(--teach-color); }
+    .seg-mentor { background-color: var(--mentor-color); }
+    .seg-study { background-color: var(--study-color); }
+
+    .pillars-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 10px;
+      font-size: 0.78rem;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    /* Controls Bar: Filter, Search, Views */
+    .controls-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filter-btn {
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid var(--card-border);
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .filter-btn.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: white;
+    }
+
+    .filter-btn.active.filter-admin { background: var(--admin-color); border-color: var(--admin-color); }
+    .filter-btn.active.filter-teach { background: var(--teach-color); border-color: var(--teach-color); }
+    .filter-btn.active.filter-mentor { background: var(--mentor-color); border-color: var(--mentor-color); }
+    .filter-btn.active.filter-study { background: var(--study-color); border-color: var(--study-color); }
+
+    .search-and-view {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-grow: 1;
+      justify-content: flex-end;
+    }
+
+    .search-box {
+      position: relative;
+      max-width: 260px;
+      width: 100%;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 8px 12px 8px 34px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--card-border);
+      background: var(--bg);
+      color: var(--text-main);
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-input:focus {
+      border-color: var(--primary);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      pointer-events: none;
+    }
+
+    .view-switcher {
+      display: flex;
+      background: var(--bg);
+      padding: 3px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--card-border);
+    }
+
+    .view-btn {
+      padding: 6px 12px;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.15s;
+    }
+
+    .view-btn.active {
+      background: var(--card-bg);
+      color: var(--text-main);
+      font-weight: 600;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Category Badges */
+    .cat-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .cat-admin { background: var(--admin-bg); color: var(--admin-color); border: 1px solid var(--admin-border); }
+    .cat-teach { background: var(--teach-bg); color: var(--teach-color); border: 1px solid var(--teach-border); }
+    .cat-mentor { background: var(--mentor-bg); color: var(--mentor-color); border: 1px solid var(--mentor-border); }
+    .cat-study { background: var(--study-bg); color: var(--study-color); border: 1px solid var(--study-border); }
+
+    /* VIEW 1: Grid View */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 24px;
+    }
+
+    @media (max-width: 480px) {
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .activity-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .activity-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary);
+    }
+
+    .card-media {
+      position: relative;
+      height: 210px;
+      background: #1e293b;
+      overflow: hidden;
+    }
+
+    .card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .activity-card:hover .card-media img {
+      transform: scale(1.05);
+    }
+
+    .media-empty {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.15));
+      color: var(--text-muted);
+      gap: 8px;
+    }
+
+    .media-empty-icon {
+      font-size: 2.2rem;
+    }
+
+    .photo-count-badge {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(4px);
+      color: white;
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .card-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .card-date {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-main);
+      line-height: 1.4;
+    }
+
+    .card-location {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 12px;
+    }
+
+    .card-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      line-height: 1.5;
+    }
+
+    .card-reflection-snippet {
+      background: var(--bg);
+      border-left: 3px solid var(--primary);
+      padding: 8px 12px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 0.82rem;
+      color: var(--text-main);
+      font-style: italic;
+      margin-bottom: 16px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-footer {
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid var(--card-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .mini-tag {
+      font-size: 0.72rem;
+      background: var(--bg);
+      color: var(--text-muted);
+      padding: 2px 6px;
+      border-radius: 4px;
+      border: 1px solid var(--card-border);
+    }
+
+    .card-arrow {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* VIEW 2: Timeline View */
+    .timeline-view {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+
+    .timeline-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 28px;
+      width: 2px;
+      background: var(--card-border);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 70px;
+      margin-bottom: 36px;
+    }
+
+    .timeline-node {
+      position: absolute;
+      left: 17px;
+      top: 4px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--card-bg);
+      border: 3px solid var(--primary);
+      box-shadow: 0 0 0 4px var(--bg);
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+    }
+
+    .timeline-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .timeline-card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary);
+      transform: translateX(4px);
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+
+    .timeline-photos-preview {
+      display: flex;
+      gap: 8px;
+      margin-top: 14px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+
+    .timeline-thumb {
+      width: 80px;
+      height: 60px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 1px solid var(--card-border);
+    }
+
+    /* VIEW 3: Pillars / Four Categories View */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 1024px) {
+      .pillars-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .pillars-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .pillar-col {
+      background: var(--bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pillar-header {
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+      border-bottom: 2px solid var(--card-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .pillar-title {
+      font-size: 1rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pillar-count {
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    .pillar-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex-grow: 1;
+    }
+
+    .pillar-mini-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .pillar-mini-card:hover {
+      box-shadow: var(--shadow-sm);
+      border-color: var(--primary);
+    }
+
+    .pillar-mini-card h4 {
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .pillar-mini-card p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Modal Styling */
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.25s ease;
+      padding: 20px;
+    }
+
+    .modal-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-window {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-xl);
+      max-width: 800px;
+      width: 100%;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-xl);
+      transform: translateY(20px) scale(0.98);
+      transition: all 0.25s ease;
+      overflow: hidden;
+    }
+
+    .modal-backdrop.active .modal-window {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--card-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-header h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .modal-body {
+      padding: 24px;
+      overflow-y: auto;
+    }
+
+    .modal-footer {
+      padding: 16px 24px;
+      border-top: 1px solid var(--card-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg);
+    }
+
+    .modal-close-btn {
+      background: transparent;
+      border: none;
+      font-size: 1.4rem;
+      color: var(--text-muted);
+      cursor: border-radius;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+    .modal-close-btn:hover {
+      background: var(--bg);
+      color: var(--text-main);
+    }
+
+    /* Detail Modal Specifics */
+    .detail-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+      margin: 18px 0;
+    }
+
+    .gallery-img-wrapper {
+      position: relative;
+      height: 150px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      cursor: pointer;
+      border: 1px solid var(--card-border);
+    }
+
+    .gallery-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .gallery-img-wrapper:hover img {
+      transform: scale(1.08);
+    }
+
+    .section-block {
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .section-box {
+      background: var(--bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+
+    .folder-path-hint {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: var(--primary-light);
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--primary);
+      margin-top: 14px;
+    }
+
+    /* Forms */
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text-main);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 9px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--card-border);
+      background: var(--bg);
+      color: var(--text-main);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 600px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    textarea.form-control {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    /* Fullscreen Lightbox */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.2s ease;
+    }
+
+    .lightbox.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .lightbox-img-wrap {
+      max-width: 90vw;
+      max-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: var(--radius-sm);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.15);
+      border: none;
+      color: white;
+      font-size: 1.8rem;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .lightbox-nav:hover { background: rgba(255, 255, 255, 0.3); }
+    .lightbox-prev { left: 24px; }
+    .lightbox-next { right: 24px; }
+
+    .lightbox-close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      background: rgba(255, 255, 255, 0.15);
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-caption {
+      position: absolute;
+      bottom: 24px;
+      color: white;
+      font-size: 0.9rem;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 6px 16px;
+      border-radius: 999px;
+    }
+
+    /* Empty state */
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      background: var(--card-bg);
+      border: 1px dashed var(--card-border);
+      border-radius: var(--radius-lg);
+      grid-column: 1 / -1;
+    }
+
+    .empty-state-icon {
+      font-size: 3rem;
+      margin-bottom: 12px;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #1e293b;
+      color: white;
+      padding: 12px 20px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 3000;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Print Stylesheet for Practicum Portfolio PDF Export */
+    @media print {
+      body {
+        background: white !important;
+        color: black !important;
+      }
+      .top-nav, .controls-bar, .nav-actions, .modal-backdrop, .lightbox, .btn, .view-switcher, .search-box {
+        display: none !important;
+      }
+      .container {
+        max-width: 100% !important;
+        padding: 0 !important;
+      }
+      .hero-panel {
+        background: none !important;
+        border: 1px solid #ccc !important;
+        page-break-after: avoid;
+      }
+      .cards-grid {
+        display: block !important;
+      }
+      .activity-card {
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+        margin-bottom: 24px !important;
+        page-break-inside: avoid;
+      }
+      .card-media {
+        height: 180px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Top Navigation -->
+  <header class="top-nav">
+    <a href="#" class="brand">
+      <div class="brand-icon">🎓</div>
+      <div class="brand-title">
+        <h1>教育實習歷程與活動檔案庫</h1>
+        <p id="subTitle">Practicum Portfolio & Activities Index</p>
+      </div>
+    </a>
+    
+    <div class="nav-actions">
+      <button class="btn btn-secondary" onclick="openProfileModal()" title="編輯實習教師個人資料">
+        <span>👤</span> 實習檔案資料
+      </button>
+      <button class="btn btn-primary" onclick="openAddModal()">
+        <span>➕</span> 新增活動紀錄
+      </button>
+      <button class="btn btn-secondary" onclick="window.print()" title="列印或另存實習報告 PDF">
+        <span>🖨️</span> 列印成果冊
+      </button>
+      <button class="btn-icon" id="themeToggle" onclick="toggleTheme()" title="切換深色/淺色模式">
+        🌙
+      </button>
+      <button class="btn-icon" onclick="openSettingsModal()" title="資料管理與備份">
+        ⚙️
+      </button>
+    </div>
+  </header>
+
+  <!-- Practicum Profile & Stat Cards -->
+  <section class="hero-panel">
+    <div class="hero-content">
+      <div class="profile-info">
+        <h2>
+          <span id="displayTeacherName">實習教師</span>
+          <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">的教育實習日誌</span>
+        </h2>
+        <div class="profile-tags">
+          <div class="profile-tag">🏫 學校：<strong id="displaySchool">實習合作中學</strong></div>
+          <div class="profile-tag">📚 科別：<strong id="displaySubject">中等教育 / 自然科學領域</strong></div>
+          <div class="profile-tag">👨‍🏫 指導教授：<strong id="displayProfessor">大學指導教授</strong></div>
+          <div class="profile-tag">👩‍🏫 輔導教師：<strong id="displayMentor">校內實習輔導教師</strong></div>
+          <div class="profile-tag">🗓️ 實習期程：<strong id="displayPeriod">113學年度第一學期</strong></div>
+        </div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-box">
+          <div class="stat-value" id="statTotalActivities">0</div>
+          <div class="stat-label">📁 實習活動總數</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value" id="statTotalPhotos">0</div>
+          <div class="stat-label">📷 紀錄照片張數</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value" id="statDaysCount">--</div>
+          <div class="stat-label">⏳ 實習進行天數</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value" id="statCategoriesCovered">0/4</div>
+          <div class="stat-label">🎯 涵蓋實習面向</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Four Pillars Progress Bar -->
+    <div class="pillars-bar">
+      <div class="pillars-label">
+        <span>四大實習面向達成度統計</span>
+        <span id="pillarsPercentageText">0% 均衡度</span>
+      </div>
+      <div class="progress-track" id="progressTrack">
+        <div class="progress-segment seg-admin" id="barAdmin" style="width: 0%" title="行政實習"></div>
+        <div class="progress-segment seg-teach" id="barTeach" style="width: 0%" title="教學實習"></div>
+        <div class="progress-segment seg-mentor" id="barMentor" style="width: 0%" title="導師實習"></div>
+        <div class="progress-segment seg-study" id="barStudy" style="width: 0%" title="研習與專業成長"></div>
+      </div>
+      <div class="pillars-legend">
+        <div class="legend-item">
+          <span class="legend-dot" style="background: var(--admin-color)"></span>
+          <span>行政實習 (<strong id="countAdmin">0</strong>)</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot" style="background: var(--teach-color)"></span>
+          <span>教學實習 (<strong id="countTeach">0</strong>)</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot" style="background: var(--mentor-color)"></span>
+          <span>導師實習 (<strong id="countMentor">0</strong>)</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot" style="background: var(--study-color)"></span>
+          <span>研習與專業成長 (<strong id="countStudy">0</strong>)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Controls Bar: Filter, Search, View Switcher -->
+  <section class="controls-bar">
+    <div class="filter-group">
+      <button class="filter-btn active" onclick="setCategoryFilter('all', this)">全部活動</button>
+      <button class="filter-btn filter-study" onclick="setCategoryFilter('研習與專業成長', this)">🟣 研習與專業成長</button>
+      <button class="filter-btn filter-admin" onclick="setCategoryFilter('行政實習', this)">📘 行政實習</button>
+      <button class="filter-btn filter-teach" onclick="setCategoryFilter('教學實習', this)">📗 教學實習</button>
+      <button class="filter-btn filter-mentor" onclick="setCategoryFilter('導師實習', this)">📙 導師實習</button>
+    </div>
+
+    <div class="search-and-view">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" class="search-input" placeholder="搜尋主題、心得或關鍵字..." oninput="handleSearch()">
+      </div>
+
+      <div class="view-switcher">
+        <button class="view-btn active" id="viewBtnGrid" onclick="switchView('grid')">
+          📇 卡片
+        </button>
+        <button class="view-btn" id="viewBtnTimeline" onclick="switchView('timeline')">
+          ⏳ 時間軸
+        </button>
+        <button class="view-btn" id="viewBtnPillars" onclick="switchView('pillars')">
+          📂 四大面向
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main id="mainContainer">
+    <!-- View 1: Cards Grid -->
+    <div id="gridView" class="cards-grid"></div>
+
+    <!-- View 2: Timeline View -->
+    <div id="timelineView" class="timeline-view" style="display: none;">
+      <div class="timeline-line"></div>
+      <div id="timelineContent"></div>
+    </div>
+
+    <!-- View 3: Pillars View -->
+    <div id="pillarsView" class="pillars-grid" style="display: none;">
+      <div class="pillar-col">
+        <div class="pillar-header">
+          <div class="pillar-title" style="color: var(--study-color)">🟣 研習與專業成長</div>
+          <span class="pillar-count cat-study" id="pCountStudy">0</span>
+        </div>
+        <div class="pillar-cards" id="pColStudy"></div>
+      </div>
+      
+      <div class="pillar-col">
+        <div class="pillar-header">
+          <div class="pillar-title" style="color: var(--admin-color)">📘 行政實習</div>
+          <span class="pillar-count cat-admin" id="pCountAdmin">0</span>
+        </div>
+        <div class="pillar-cards" id="pColAdmin"></div>
+      </div>
+
+      <div class="pillar-col">
+        <div class="pillar-header">
+          <div class="pillar-title" style="color: var(--teach-color)">📗 教學實習</div>
+          <span class="pillar-count cat-teach" id="pCountTeach">0</span>
+        </div>
+        <div class="pillar-cards" id="pColTeach"></div>
+      </div>
+
+      <div class="pillar-col">
+        <div class="pillar-header">
+          <div class="pillar-title" style="color: var(--mentor-color)">📙 導師實習</div>
+          <span class="pillar-count cat-mentor" id="pCountMentor">0</span>
+        </div>
+        <div class="pillar-cards" id="pColMentor"></div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- MODAL: Activity Detail -->
+<div id="detailModal" class="modal-backdrop" onclick="closeModalOnBackdrop(event, 'detailModal')">
+  <div class="modal-window">
+    <div class="modal-header">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <span id="detailCatBadge" class="cat-badge"></span>
+        <h3 id="detailTitle" style="font-size: 1.25rem;"></h3>
+      </div>
+      <button class="modal-close-btn" onclick="closeModal('detailModal')">&times;</button>
+    </div>
+    
+    <div class="modal-body">
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 16px; font-size: 0.88rem; color: var(--text-muted);">
+        <div>📅 <strong>日期：</strong><span id="detailDate"></span></div>
+        <div>📍 <strong>地點：</strong><span id="detailLocation"></span></div>
+        <div>👥 <strong>參與對象：</strong><span id="detailAttendees"></span></div>
+      </div>
+
+      <!-- Detail Photos Gallery -->
+      <div id="detailGallerySection" class="section-block">
+        <div class="section-title">📷 現場活動紀錄相片 (<span id="detailPhotoCount">0</span>)</div>
+        <div id="detailGallery" class="detail-gallery"></div>
+      </div>
+
+      <!-- Activity Content -->
+      <div class="section-block">
+        <div class="section-title">📝 活動歷程與內容摘要</div>
+        <div id="detailDescription" class="section-box"></div>
+      </div>
+
+      <!-- Reflection Section -->
+      <div class="section-block">
+        <div class="section-title">💡 實習心得與教學省思 (Practicum Reflection)</div>
+        <div id="detailReflection" class="section-box" style="border-left: 4px solid var(--primary); background: var(--primary-light);"></div>
+      </div>
+
+      <!-- Local Folder Path Reference -->
+      <div id="detailFolderHint" class="folder-path-hint">
+        📁 本地目錄位置：<code id="detailFolderPath"></code>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <div style="display: flex; gap: 8px;">
+        <button class="btn btn-secondary" id="btnEditActivity" onclick="handleEditCurrentActivity()">✏️ 編輯此活動</button>
+        <button class="btn btn-secondary" style="color: #ef4444; border-color: #fca5a5;" id="btnDeleteActivity" onclick="handleDeleteCurrentActivity()">🗑️ 刪除</button>
+      </div>
+      <button class="btn btn-primary" onclick="closeModal('detailModal')">關閉</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: Add / Edit Activity -->
+<div id="formModal" class="modal-backdrop" onclick="closeModalOnBackdrop(event, 'formModal')">
+  <div class="modal-window">
+    <div class="modal-header">
+      <h3 id="formModalTitle">➕ 新增實習活動紀錄</h3>
+      <button class="modal-close-btn" onclick="closeModal('formModal')">&times;</button>
+    </div>
+    
+    <form id="activityForm" onsubmit="saveActivity(event)">
+      <input type="hidden" id="formActivityId">
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">活動名稱 / 主題 <span style="color:red">*</span></label>
+          <input type="text" id="formTitle" class="form-control" placeholder="例如：0806東華大學物理系光實驗參訪" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">實習面向分類 <span style="color:red">*</span></label>
+            <select id="formCategory" class="form-control" required>
+              <option value="研習與專業成長">🟣 研習與專業成長</option>
+              <option value="行政實習">📘 行政實習</option>
+              <option value="教學實習">📗 教學實習</option>
+              <option value="導師實習">📙 導師實習</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">活動日期 <span style="color:red">*</span></label>
+            <input type="date" id="formDate" class="form-control" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">活動地點</label>
+            <input type="text" id="formLocation" class="form-control" placeholder="例如：東華大學物理學系實驗室、校內會議室">
+          </div>
+          <div class="form-group">
+            <label class="form-label">參與人員 / 對象</label>
+            <input type="text" id="formAttendees" class="form-control" placeholder="例如：實習教師、指導教授、科內教師群">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">對應本地資料夾名稱 (可選)</label>
+          <input type="text" id="formFolder" class="form-control" placeholder="例如：0806東華大學物理系光實驗參訪">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">相片檔案相對路徑 (以逗號分隔多個路徑)</label>
+          <input type="text" id="formPhotos" class="form-control" placeholder="例如：0806東華大學物理系光實驗參訪/IMG_8164.JPG, 0806東華大學物理系光實驗參訪/IMG_8165.JPG">
+          <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 4px;">
+            💡 提示：輸入相片相對路徑，開啟網頁即可直接載入本地照片。
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">活動內容與過程紀錄</label>
+          <textarea id="formDescription" class="form-control" placeholder="請詳細記錄本次活動的流程、討論重點、觀察所得或具體執行項目..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">實習心得與教學省思 (Reflection)</label>
+          <textarea id="formReflection" class="form-control" placeholder="請記錄本次活動對教學專業、班級經營、行政運作或個人教育理念帶來的反思與啟發..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">標籤 Tags (以逗點分隔)</label>
+          <input type="text" id="formTags" class="form-control" placeholder="例如：物理實驗, 光學, SDGs, 教學演示, 常態編班">
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="closeModal('formModal')">取消</button>
+        <button type="submit" class="btn btn-primary">💾 儲存活動紀錄</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- MODAL: Teacher Profile -->
+<div id="profileModal" class="modal-backdrop" onclick="closeModalOnBackdrop(event, 'profileModal')">
+  <div class="modal-window" style="max-width: 550px;">
+    <div class="modal-header">
+      <h3>👤 實習基本資料設定</h3>
+      <button class="modal-close-btn" onclick="closeModal('profileModal')">&times;</button>
+    </div>
+    <form onsubmit="saveProfile(event)">
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">實習教師姓名</label>
+          <input type="text" id="profName" class="form-control" value="賈哲" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">實習學校</label>
+          <input type="text" id="profSchool" class="form-control" value="國立教育實習合作學校">
+        </div>
+        <div class="form-group">
+          <label class="form-label">任教學科 / 領域</label>
+          <input type="text" id="profSubject" class="form-control" value="中等教育 / 自然科學領域 (物理科)">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">指導教授</label>
+            <input type="text" id="profProfessor" class="form-control" value="大學指導教授">
+          </div>
+          <div class="form-group">
+            <label class="form-label">實習輔導教師</label>
+            <input type="text" id="profMentor" class="form-control" value="校內實習輔導教師">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">實習開始日</label>
+            <input type="date" id="profStartDate" class="form-control" value="2026-08-01">
+          </div>
+          <div class="form-group">
+            <label class="form-label">實習結束日</label>
+            <input type="date" id="profEndDate" class="form-control" value="2027-01-31">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="closeModal('profileModal')">取消</button>
+        <button type="submit" class="btn btn-primary">💾 儲存基本資料</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- MODAL: Settings & Backup -->
+<div id="settingsModal" class="modal-backdrop" onclick="closeModalOnBackdrop(event, 'settingsModal')">
+  <div class="modal-window" style="max-width: 550px;">
+    <div class="modal-header">
+      <h3>⚙️ 資料管理與備份</h3>
+      <button class="modal-close-btn" onclick="closeModal('settingsModal')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div style="margin-bottom: 20px;">
+        <h4 style="font-size: 0.95rem; margin-bottom: 6px;">📦 匯出實習資料庫 (JSON)</h4>
+        <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 10px;">
+          將目前所有的實習活動、反思紀錄與設定儲存為 JSON 備份檔。
+        </p>
+        <button class="btn btn-secondary" onclick="exportData()">📥 下載 JSON 備份檔</button>
+      </div>
+
+      <hr style="border: 0; border-top: 1px solid var(--card-border); margin: 16px 0;">
+
+      <div style="margin-bottom: 20px;">
+        <h4 style="font-size: 0.95rem; margin-bottom: 6px;">📤 匯入實習資料庫 (JSON)</h4>
+        <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 10px;">
+          從先前的備份檔案還原或合併實習活動資料。
+        </p>
+        <input type="file" id="importFileInput" accept=".json" style="display:none" onchange="importData(event)">
+        <button class="btn btn-secondary" onclick="document.getElementById('importFileInput').click()">📂 選擇檔案還原</button>
+      </div>
+
+      <hr style="border: 0; border-top: 1px solid var(--card-border); margin: 16px 0;">
+
+      <div>
+        <h4 style="font-size: 0.95rem; margin-bottom: 6px; color: #ef4444;">⚠️ 重設為初始預設資料</h4>
+        <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 10px;">
+          清除自訂編輯資料，恢復為預載的 4 大初始實習活動項目。
+        </p>
+        <button class="btn btn-secondary" style="color: #ef4444; border-color: #fca5a5;" onclick="resetToDefault()">🔄 重設資料</button>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" onclick="closeModal('settingsModal')">關閉</button>
+    </div>
+  </div>
+</div>
+
+<!-- FULLSCREEN PHOTO LIGHTBOX -->
+<div id="photoLightbox" class="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightboxDirect()">&times;</button>
+  <button class="lightbox-nav lightbox-prev" onclick="prevLightboxImage(event)">&#10094;</button>
+  <div class="lightbox-img-wrap" onclick="event.stopPropagation()">
+    <img id="lightboxImg" class="lightbox-img" src="" alt="實習相片">
+  </div>
+  <button class="lightbox-nav lightbox-next" onclick="nextLightboxImage(event)">&#10095;</button>
+  <div class="lightbox-caption" id="lightboxCaption">相片 1/1</div>
+</div>
+
+<!-- TOAST MESSAGE -->
+<div id="toast" class="toast">
+  <span id="toastIcon">✅</span>
+  <span id="toastMsg">操作成功</span>
+</div>
+
+<script>
+// ==========================================
+// 1. 預設資料 (Initial Default Practicum Data)
+// ==========================================
+const DEFAULT_PROFILE = {
+  name: "實習教師",
+  school: "教育實習合作中學",
+  subject: "中等教育 / 自然科學領域 (物理科)",
+  professor: "大學指導教授",
+  mentor: "校內實習輔導教師",
+  startDate: "2026-08-01",
+  endDate: "2027-01-31",
+  period: "113學年度教育實習"
+};
+
+const DEFAULT_ACTIVITIES = [
+  {
+    id: "act-0806",
+    title: "0806東華大學物理系光實驗參訪",
+    category: "研習與專業成長",
+    date: "2026-08-06",
+    location: "國立東華大學 物理學系 光電實驗室",
+    attendees: "實習教師、自然科學科教師群、大學教授",
+    folder: "0806東華大學物理系光實驗參訪",
+    photos: [
+      "0806東華大學物理系光實驗參訪/IMG_8164.JPG",
+      "0806東華大學物理系光實驗參訪/IMG_8165.JPG",
+      "0806東華大學物理系光實驗參訪/IMG_8166.JPG"
+    ],
+    description: "實地參訪國立東華大學物理學系先進光學與光電實驗室。觀摩精密雷射光學干涉繞射實驗儀器、光譜儀演示以及現代物理前沿教學模組。與大學教授及系所研究團隊交流如何將高階光學實驗概念轉化為適合國高中探究與實作之教學教案。",
+    reflection: "【教學啟發與省思】\n1. 透過大學端高階光學實驗的參訪，深化了自身對幾何光學與波動光學原理的直觀理解。\n2. 思考如何設計平價化、微型化的自製教具（例如使用簡易雷射筆與光碟片光柵），引導中學生在課堂中體會光學干涉現象，提升探究與實作興趣。\n3. 大學端的科學探究精神可作為未來引導學生專題研究與科展培訓之重要借鏡。",
+    tags: ["光學實驗", "物理科", "大學參訪", "探究與實作", "教具研發"]
+  },
+  {
+    id: "act-0810",
+    title: "0810協助新生編班會議",
+    category: "行政實習",
+    date: "2026-08-10",
+    location: "學校第一行政會議室 / 教務處",
+    attendees: "教務處同仁、學務處同仁、新生導師、家長代表、實習教師",
+    folder: "0810協助新生編班會議",
+    photos: [],
+    description: "協助教務處辦理全校國/高中新生常態編班暨導師抽籤作業會議。全程參與編班名冊核對、常態編班電腦亂數派班流程、特殊生及雙胞胎安置原則討論，以及新生導師班級公開抽籤見證。",
+    reflection: "【行政知能與省思】\n1. 理解教育部「常態編班及分組學習準則」之法規意涵，親身體會學校行政在維護教育公平與公開透明原則上的嚴謹流程。\n2. 觀察教務主任與行政同仁如何與新生導師及家長代表進行良性溝通，協調特教學生安置與個別化需求。\n3. 學習到校務行政系統操作要領與大型會議行政前置準備（會議手冊、籤筒、投影即時確認）之SOP細節。",
+    tags: ["教務處", "常態編班", "校務行政", "導師抽籤", "教育法規"]
+  },
+  {
+    id: "act-0811",
+    title: "0811御風輪參訪",
+    category: "研習與專業成長",
+    date: "2026-08-11",
+    location: "御風輪風力發電與綠能科技研發基地",
+    attendees: "實習教師、自然與科技領域教師、研習講師",
+    folder: "0811御風輪參訪",
+    photos: [
+      "0811御風輪參訪/IMG_8169.JPG",
+      "0811御風輪參訪/IMG_8170.JPG",
+      "0811御風輪參訪/IMG_8171.JPG"
+    ],
+    description: "前往御風輪綠色能源科技展示中心與風力發電機組基地進行戶外專業增能研習。深入認識風力葉片流體力學設計、發電機組機電整合結構、綠能發電效率監測系統，以及在地永續能源發展現況。",
+    reflection: "【跨領域課程研發省思】\n1. 御風輪的機械機構與流體力學原理，是結合中學物理「能量轉換、力矩與角動量」的最佳生活化跨領域情境素材。\n2. 可結合聯合國永續發展目標 SDGs 7 (可負擔的潔淨能源) 與 SDGs 13 (氣候行動)，規劃一系列跨物理、地科與科技領域的 STEM 跨領域主題課程。\n3. 戶外科技參訪不僅開拓實習教師的工程科技視野，也為未來帶領學生進行戶外教育提供豐富的實例資源。",
+    tags: ["綠色能源", "風力發電", "SDGs", "STEM教育", "戶外教育"]
+  },
+  {
+    id: "act-0828",
+    title: "備課日研習",
+    category: "研習與專業成長",
+    date: "2026-08-28",
+    location: "學校禮堂大演講廳 & 自然科教學研究室",
+    attendees: "全校全體教職員工、各科實習教師",
+    folder: "備課日研習",
+    photos: [
+      "備課日研習/IMG_8172.JPG"
+    ],
+    description: "參與新學期全校教師備課日專業研習。上午聆聽校長校務發展報告、性別平等教育法規宣導、正向管教與特教知能研習；下午參與自然科學科教學研究會，共同審查全學期課程計畫、教學進度表、實驗器材盤點及定期評量命題配當。",
+    reflection: "【專業成長與教學準備省思】\n1. 備課日是新學期的重要啟航點，讓實習教師完整了解全校性校務運作脈絡與各處室重點推動專案。\n2. 在自然科教學研究會中，向資深輔導教師請教各單元教學難點、實驗安全防護要領與多元評量設計方式，獲益良多。\n3. 體認到教師專業社群（PLC）共同備課與協同對話的強大力量，為即將到來的教學觀課與試教做好最扎實的準備。",
+    tags: ["備課日", "教學研究會", "性平研習", "課程計畫", "專業成長"]
+  }
+];
+
+// ==========================================
+// 2. 狀態管理 (State Management)
+// ==========================================
+let activities = [];
+let profile = {};
+let currentFilter = 'all';
+let currentSearch = '';
+let currentView = 'grid'; // 'grid' | 'timeline' | 'pillars'
+let activeDetailActivity = null;
+
+// Lightbox state
+let currentLightboxImages = [];
+let currentLightboxIndex = 0;
+
+// ==========================================
+// 3. 初始化 (Initialization)
+// ==========================================
+function init() {
+  loadData();
+  applyTheme();
+  renderProfile();
+  renderStats();
+  renderActivities();
+}
+
+function loadData() {
+  const savedProfile = localStorage.getItem('practicum_profile');
+  profile = savedProfile ? JSON.parse(savedProfile) : { ...DEFAULT_PROFILE };
+
+  const savedActs = localStorage.getItem('practicum_activities');
+  activities = savedActs ? JSON.parse(savedActs) : JSON.parse(JSON.stringify(DEFAULT_ACTIVITIES));
+}
+
+function saveData() {
+  localStorage.setItem('practicum_activities', JSON.stringify(activities));
+  localStorage.setItem('practicum_profile', JSON.stringify(profile));
+  renderStats();
+  renderActivities();
+}
+
+// ==========================================
+// 4. 渲染邏輯 (Rendering)
+// ==========================================
+function renderProfile() {
+  document.getElementById('displayTeacherName').textContent = profile.name || "實習教師";
+  document.getElementById('displaySchool').textContent = profile.school || "實習學校";
+  document.getElementById('displaySubject').textContent = profile.subject || "自然科學領域";
+  document.getElementById('displayProfessor').textContent = profile.professor || "指導教授";
+  document.getElementById('displayMentor').textContent = profile.mentor || "輔導教師";
+  document.getElementById('displayPeriod').textContent = profile.period || "113學年度";
+
+  // Form profile values
+  document.getElementById('profName').value = profile.name || "";
+  document.getElementById('profSchool').value = profile.school || "";
+  document.getElementById('profSubject').value = profile.subject || "";
+  document.getElementById('profProfessor').value = profile.professor || "";
+  document.getElementById('profMentor').value = profile.mentor || "";
+  document.getElementById('profStartDate').value = profile.startDate || "2026-08-01";
+  document.getElementById('profEndDate').value = profile.endDate || "2027-01-31";
+}
+
+function renderStats() {
+  const total = activities.length;
+  const totalPhotos = activities.reduce((sum, act) => sum + (act.photos ? act.photos.length : 0), 0);
+
+  document.getElementById('statTotalActivities').textContent = total;
+  document.getElementById('statTotalPhotos').textContent = totalPhotos;
+
+  // Calculate practicum day
+  if (profile.startDate) {
+    const start = new Date(profile.startDate);
+    const now = new Date();
+    const diffTime = now - start;
+    const diffDays = Math.max(1, Math.floor(diffTime / (1000 * 60 * 60 * 24)));
+    document.getElementById('statDaysCount').textContent = `第 ${diffDays} 天`;
+  }
+
+  // Four categories count
+  const cAdmin = activities.filter(a => a.category === '行政實習').length;
+  const cTeach = activities.filter(a => a.category === '教學實習').length;
+  const cMentor = activities.filter(a => a.category === '導師實習').length;
+  const cStudy = activities.filter(a => a.category === '研習與專業成長').length;
+
+  document.getElementById('countAdmin').textContent = cAdmin;
+  document.getElementById('countTeach').textContent = cTeach;
+  document.getElementById('countMentor').textContent = cMentor;
+  document.getElementById('countStudy').textContent = cStudy;
+
+  // Categories covered
+  let covered = 0;
+  if (cAdmin > 0) covered++;
+  if (cTeach > 0) covered++;
+  if (cMentor > 0) covered++;
+  if (cStudy > 0) covered++;
+  document.getElementById('statCategoriesCovered').textContent = `${covered}/4`;
+
+  // Progress Bar percentage
+  if (total > 0) {
+    document.getElementById('barAdmin').style.width = `${(cAdmin / total) * 100}%`;
+    document.getElementById('barTeach').style.width = `${(cTeach / total) * 100}%`;
+    document.getElementById('barMentor').style.width = `${(cMentor / total) * 100}%`;
+    document.getElementById('barStudy').style.width = `${(cStudy / total) * 100}%`;
+    document.getElementById('pillarsPercentageText').textContent = `涵蓋率 ${Math.round((covered / 4) * 100)}%`;
+  } else {
+    document.getElementById('barAdmin').style.width = '0%';
+    document.getElementById('barTeach').style.width = '0%';
+    document.getElementById('barMentor').style.width = '0%';
+    document.getElementById('barStudy').style.width = '0%';
+    document.getElementById('pillarsPercentageText').textContent = '尚無紀錄';
+  }
+}
+
+function getFilteredActivities() {
+  let list = [...activities];
+
+  // Category filter
+  if (currentFilter !== 'all') {
+    list = list.filter(a => a.category === currentFilter);
+  }
+
+  // Search query
+  if (currentSearch.trim() !== '') {
+    const q = currentSearch.toLowerCase();
+    list = list.filter(a => 
+      (a.title && a.title.toLowerCase().includes(q)) ||
+      (a.description && a.description.toLowerCase().includes(q)) ||
+      (a.reflection && a.reflection.toLowerCase().includes(q)) ||
+      (a.location && a.location.toLowerCase().includes(q)) ||
+      (a.tags && a.tags.some(t => t.toLowerCase().includes(q)))
+    );
+  }
+
+  // Sort by date (descending)
+  list.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+  return list;
+}
+
+function renderActivities() {
+  const filtered = getFilteredActivities();
+
+  if (currentView === 'grid') {
+    renderGridView(filtered);
+  } else if (currentView === 'timeline') {
+    renderTimelineView(filtered);
+  } else if (currentView === 'pillars') {
+    renderPillarsView(filtered);
+  }
+}
+
+function getCategoryClass(cat) {
+  switch (cat) {
+    case '行政實習': return 'cat-admin';
+    case '教學實習': return 'cat-teach';
+    case '導師實習': return 'cat-mentor';
+    case '研習與專業成長': return 'cat-study';
+    default: return 'cat-study';
+  }
+}
+
+function getCategoryIcon(cat) {
+  switch (cat) {
+    case '行政實習': return '📘';
+    case '教學實習': return '📗';
+    case '導師實習': return '📙';
+    case '研習與專業成長': return '🟣';
+    default: return '📁';
+  }
+}
+
+// 4.1 Render Grid View
+function renderGridView(items) {
+  const container = document.getElementById('gridView');
+  if (items.length === 0) {
+    container.innerHTML = `
+      <div class="empty-state">
+        <div class="empty-state-icon">🔍</div>
+        <h3>查無符合條件的實習活動紀錄</h3>
+        <p style="color: var(--text-muted); margin-top: 6px;">請嘗試更換關鍵字或點擊上方按鈕新增活動</p>
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = items.map(act => {
+    const hasPhoto = act.photos && act.photos.length > 0;
+    const photoCount = act.photos ? act.photos.length : 0;
+    const coverPhoto = hasPhoto ? encodeURI(act.photos[0]) : '';
+    const catClass = getCategoryClass(act.category);
+    const catIcon = getCategoryIcon(act.category);
+
+    return `
+      <div class="activity-card" onclick="openDetailModal('${act.id}')">
+        <div class="card-media">
+          ${hasPhoto ? `
+            <img src="${coverPhoto}" alt="${act.title}" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\\'media-empty\\'><span class=\\'media-empty-icon\\'>📷</span><span>相片載入中</span></div>';">
+            <span class="photo-count-badge">📷 ${photoCount} 張相片</span>
+          ` : `
+            <div class="media-empty">
+              <span class="media-empty-icon">${catIcon}</span>
+              <span style="font-size: 0.85rem; font-weight: 500;">${act.category}</span>
+            </div>
+          `}
+        </div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="cat-badge ${catClass}">${catIcon} ${act.category}</span>
+            <span class="card-date">📅 ${act.date || '未定'}</span>
+          </div>
+          <h3 class="card-title">${act.title}</h3>
+          ${act.location ? `<div class="card-location">📍 ${act.location}</div>` : ''}
+          <div class="card-desc">${act.description || '點擊查看詳細活動紀錄與省思心得...'}</div>
+          ${act.reflection ? `
+            <div class="card-reflection-snippet">
+              💡 ${act.reflection.replace(/\n/g, ' ')}
+            </div>
+          ` : ''}
+          <div class="card-footer">
+            <div class="card-tags">
+              ${(act.tags || []).slice(0, 3).map(t => `<span class="mini-tag">#${t}</span>`).join('')}
+            </div>
+            <span class="card-arrow">詳情 ➔</span>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// 4.2 Render Timeline View
+function renderTimelineView(items) {
+  const container = document.getElementById('timelineContent');
+  if (items.length === 0) {
+    container.innerHTML = `
+      <div class="empty-state">
+        <div class="empty-state-icon">⏳</div>
+        <h3>查無時間軸紀錄</h3>
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = items.map(act => {
+    const catClass = getCategoryClass(act.category);
+    const catIcon = getCategoryIcon(act.category);
+    const hasPhotos = act.photos && act.photos.length > 0;
+
+    return `
+      <div class="timeline-item">
+        <div class="timeline-node" title="${act.category}">${catIcon}</div>
+        <div class="timeline-card" onclick="openDetailModal('${act.id}')">
+          <div class="timeline-header">
+            <div>
+              <span class="cat-badge ${catClass}">${act.category}</span>
+              <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 6px;">${act.title}</h3>
+            </div>
+            <div style="font-size: 0.85rem; font-weight: 600; color: var(--primary);">
+              📅 ${act.date || ''}
+            </div>
+          </div>
+          ${act.location ? `<div style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 8px;">📍 ${act.location}</div>` : ''}
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;">${act.description || ''}</p>
+          
+          ${hasPhotos ? `
+            <div class="timeline-photos-preview" onclick="event.stopPropagation()">
+              ${act.photos.map((p, idx) => `
+                <img src="${encodeURI(p)}" class="timeline-thumb" alt="相片" onclick="openLightboxFromList(${JSON.stringify(act.photos).replace(/"/g, '&quot;')}, ${idx})">
+              `).join('')}
+            </div>
+          ` : ''}
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// 4.3 Render Pillars View
+function renderPillarsView(items) {
+  const colStudy = document.getElementById('pColStudy');
+  const colAdmin = document.getElementById('pColAdmin');
+  const colTeach = document.getElementById('pColTeach');
+  const colMentor = document.getElementById('pColMentor');
+
+  const studies = items.filter(a => a.category === '研習與專業成長');
+  const admins = items.filter(a => a.category === '行政實習');
+  const teaches = items.filter(a => a.category === '教學實習');
+  const mentors = items.filter(a => a.category === '導師實習');
+
+  document.getElementById('pCountStudy').textContent = `${studies.length} 項`;
+  document.getElementById('pCountAdmin').textContent = `${admins.length} 項`;
+  document.getElementById('pCountTeach').textContent = `${teaches.length} 項`;
+  document.getElementById('pCountMentor').textContent = `${mentors.length} 項`;
+
+  function renderColCards(list, emptyMsg) {
+    if (list.length === 0) {
+      return `<div style="text-align: center; padding: 24px 10px; color: var(--text-muted); font-size: 0.85rem;">${emptyMsg}</div>`;
+    }
+    return list.map(act => `
+      <div class="pillar-mini-card" onclick="openDetailModal('${act.id}')">
+        <h4>${act.title}</h4>
+        <div style="display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--text-muted); margin-top: 4px;">
+          <span>📅 ${act.date}</span>
+          ${act.photos && act.photos.length > 0 ? `<span>📷 ${act.photos.length}張</span>` : ''}
+        </div>
+      </div>
+    `).join('');
+  }
+
+  colStudy.innerHTML = renderColCards(studies, '尚未登錄研習活動');
+  colAdmin.innerHTML = renderColCards(admins, '尚未登錄行政實習');
+  colTeach.innerHTML = renderColCards(teaches, '尚未登錄教學實習');
+  colMentor.innerHTML = renderColCards(mentors, '尚未登錄導師實習');
+}
+
+// ==========================================
+// 5. 互動事件 (View, Filter, Search)
+// ==========================================
+function switchView(viewName) {
+  currentView = viewName;
+  document.getElementById('viewBtnGrid').classList.toggle('active', viewName === 'grid');
+  document.getElementById('viewBtnTimeline').classList.toggle('active', viewName === 'timeline');
+  document.getElementById('viewBtnPillars').classList.toggle('active', viewName === 'pillars');
+
+  document.getElementById('gridView').style.display = viewName === 'grid' ? 'grid' : 'none';
+  document.getElementById('timelineView').style.display = viewName === 'timeline' ? 'block' : 'none';
+  document.getElementById('pillarsView').style.display = viewName === 'pillars' ? 'grid' : 'none';
+
+  renderActivities();
+}
+
+function setCategoryFilter(category, btnElem) {
+  currentFilter = category;
+  document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+  if (btnElem) btnElem.classList.add('active');
+  renderActivities();
+}
+
+function handleSearch() {
+  currentSearch = document.getElementById('searchInput').value;
+  renderActivities();
+}
+
+// ==========================================
+// 6. 詳情彈窗與編輯刪除 (Detail Modal & CRUD)
+// ==========================================
+function openDetailModal(id) {
+  const act = activities.find(a => a.id === id);
+  if (!act) return;
+
+  activeDetailActivity = act;
+
+  const catClass = getCategoryClass(act.category);
+  const catIcon = getCategoryIcon(act.category);
+
+  const badge = document.getElementById('detailCatBadge');
+  badge.className = `cat-badge ${catClass}`;
+  badge.innerHTML = `${catIcon} ${act.category}`;
+
+  document.getElementById('detailTitle').textContent = act.title;
+  document.getElementById('detailDate').textContent = act.date || '未填寫';
+  document.getElementById('detailLocation').textContent = act.location || '未填寫';
+  document.getElementById('detailAttendees').textContent = act.attendees || '實習教師';
+  
+  document.getElementById('detailDescription').textContent = act.description || '（無活動內容紀錄）';
+  document.getElementById('detailReflection').textContent = act.reflection || '（尚未填寫省思心得）';
+
+  // Folder path
+  const folderElem = document.getElementById('detailFolderHint');
+  if (act.folder) {
+    folderElem.style.display = 'flex';
+    document.getElementById('detailFolderPath').textContent = act.folder;
+  } else {
+    folderElem.style.display = 'none';
+  }
+
+  // Gallery
+  const gallerySection = document.getElementById('detailGallerySection');
+  const galleryContainer = document.getElementById('detailGallery');
+  const countSpan = document.getElementById('detailPhotoCount');
+
+  if (act.photos && act.photos.length > 0) {
+    gallerySection.style.display = 'block';
+    countSpan.textContent = act.photos.length;
+    galleryContainer.innerHTML = act.photos.map((photo, idx) => `
+      <div class="gallery-img-wrapper" onclick="openLightboxFromList(${JSON.stringify(act.photos).replace(/"/g, '&quot;')}, ${idx})">
+        <img src="${encodeURI(photo)}" alt="活動紀錄相片 ${idx+1}">
+      </div>
+    `).join('');
+  } else {
+    gallerySection.style.display = 'none';
+  }
+
+  openModal('detailModal');
+}
+
+function handleEditCurrentActivity() {
+  if (!activeDetailActivity) return;
+  closeModal('detailModal');
+  openEditModal(activeDetailActivity);
+}
+
+function handleDeleteCurrentActivity() {
+  if (!activeDetailActivity) return;
+  if (confirm(`確定要刪除「${activeDetailActivity.title}」這筆活動紀錄嗎？`)) {
+    activities = activities.filter(a => a.id !== activeDetailActivity.id);
+    saveData();
+    closeModal('detailModal');
+    showToast('🗑️ 活動紀錄已成功刪除');
+  }
+}
+
+function openAddModal() {
+  document.getElementById('formModalTitle').textContent = '➕ 新增實習活動紀錄';
+  document.getElementById('activityForm').reset();
+  document.getElementById('formActivityId').value = '';
+  document.getElementById('formDate').value = new Date().toISOString().split('T')[0];
+  openModal('formModal');
+}
+
+function openEditModal(act) {
+  document.getElementById('formModalTitle').textContent = '✏️ 編輯實習活動紀錄';
+  document.getElementById('formActivityId').value = act.id;
+  document.getElementById('formTitle').value = act.title || '';
+  document.getElementById('formCategory').value = act.category || '研習與專業成長';
+  document.getElementById('formDate').value = act.date || '';
+  document.getElementById('formLocation').value = act.location || '';
+  document.getElementById('formAttendees').value = act.attendees || '';
+  document.getElementById('formFolder').value = act.folder || '';
+  document.getElementById('formPhotos').value = (act.photos || []).join(', ');
+  document.getElementById('formDescription').value = act.description || '';
+  document.getElementById('formReflection').value = act.reflection || '';
+  document.getElementById('formTags').value = (act.tags || []).join(', ');
+  openModal('formModal');
+}
+
+function saveActivity(e) {
+  e.preventDefault();
+  const id = document.getElementById('formActivityId').value;
+  const title = document.getElementById('formTitle').value.trim();
+  const category = document.getElementById('formCategory').value;
+  const date = document.getElementById('formDate').value;
+  const location = document.getElementById('formLocation').value.trim();
+  const attendees = document.getElementById('formAttendees').value.trim();
+  const folder = document.getElementById('formFolder').value.trim();
+  
+  const rawPhotos = document.getElementById('formPhotos').value.trim();
+  const photos = rawPhotos ? rawPhotos.split(',').map(p => p.trim()).filter(Boolean) : [];
+
+  const description = document.getElementById('formDescription').value.trim();
+  const reflection = document.getElementById('formReflection').value.trim();
+  
+  const rawTags = document.getElementById('formTags').value.trim();
+  const tags = rawTags ? rawTags.split(',').map(t => t.trim()).filter(Boolean) : [];
+
+  if (id) {
+    // Update existing
+    const idx = activities.findIndex(a => a.id === id);
+    if (idx !== -1) {
+      activities[idx] = { ...activities[idx], title, category, date, location, attendees, folder, photos, description, reflection, tags };
+      showToast('✅ 活動紀錄已更新');
+    }
+  } else {
+    // New activity
+    const newAct = {
+      id: 'act-' + Date.now(),
+      title,
+      category,
+      date,
+      location,
+      attendees,
+      folder,
+      photos,
+      description,
+      reflection,
+      tags
+    };
+    activities.unshift(newAct);
+    showToast('🎉 已成功新增實習活動');
+  }
+
+  saveData();
+  closeModal('formModal');
+}
+
+// Profile Modal
+function openProfileModal() {
+  openModal('profileModal');
+}
+
+function saveProfile(e) {
+  e.preventDefault();
+  profile.name = document.getElementById('profName').value.trim();
+  profile.school = document.getElementById('profSchool').value.trim();
+  profile.subject = document.getElementById('profSubject').value.trim();
+  profile.professor = document.getElementById('profProfessor').value.trim();
+  profile.mentor = document.getElementById('profMentor').value.trim();
+  profile.startDate = document.getElementById('profStartDate').value;
+  profile.endDate = document.getElementById('profEndDate').value;
+
+  localStorage.setItem('practicum_profile', JSON.stringify(profile));
+  renderProfile();
+  renderStats();
+  closeModal('profileModal');
+  showToast('👤 實習基本資料已儲存');
+}
+
+// Settings Modal & Backup
+function openSettingsModal() {
+  openModal('settingsModal');
+}
+
+function exportData() {
+  const exportPayload = {
+    exportDate: new Date().toISOString(),
+    profile: profile,
+    activities: activities
+  };
+  const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportPayload, null, 2));
+  const downloadAnchor = document.createElement('a');
+  downloadAnchor.setAttribute("href", dataStr);
+  downloadAnchor.setAttribute("download", `教育實習檔案庫備份_${new Date().toISOString().split('T')[0]}.json`);
+  document.body.appendChild(downloadAnchor);
+  downloadAnchor.click();
+  downloadAnchor.remove();
+  showToast('📥 備份檔已成功匯出');
+}
+
+function importData(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function(evt) {
+    try {
+      const imported = JSON.parse(evt.target.result);
+      if (imported.activities && Array.isArray(imported.activities)) {
+        activities = imported.activities;
+        if (imported.profile) profile = imported.profile;
+        saveData();
+        renderProfile();
+        closeModal('settingsModal');
+        showToast('📂 資料庫已成功還原！');
+      } else {
+        alert('檔案格式錯誤，無法辨識實習活動資料。');
+      }
+    } catch (err) {
+      alert('解析 JSON 檔案失敗：' + err.message);
+    }
+  };
+  reader.readAsText(file);
+}
+
+function resetToDefault() {
+  if (confirm('確定要清除所有自訂內容並重設為初始預設資料嗎？此操作不可逆。')) {
+    activities = JSON.parse(JSON.stringify(DEFAULT_ACTIVITIES));
+    profile = { ...DEFAULT_PROFILE };
+    saveData();
+    renderProfile();
+    closeModal('settingsModal');
+    showToast('🔄 已重設為初始預設實習活動');
+  }
+}
+
+// ==========================================
+// 7. 相片燈箱 (Photo Lightbox)
+// ==========================================
+function openLightboxFromList(photosList, startIndex = 0) {
+  if (!photosList || photosList.length === 0) return;
+  currentLightboxImages = photosList;
+  currentLightboxIndex = startIndex;
+  updateLightboxView();
+  document.getElementById('photoLightbox').classList.add('active');
+  document.addEventListener('keydown', handleLightboxKeydown);
+}
+
+function updateLightboxView() {
+  const imgUrl = currentLightboxImages[currentLightboxIndex];
+  document.getElementById('lightboxImg').src = encodeURI(imgUrl);
+  document.getElementById('lightboxCaption').textContent = `相片 ${currentLightboxIndex + 1} / ${currentLightboxImages.length} (${imgUrl.split('/').pop()})`;
+}
+
+function prevLightboxImage(e) {
+  if (e) e.stopPropagation();
+  if (currentLightboxImages.length === 0) return;
+  currentLightboxIndex = (currentLightboxIndex - 1 + currentLightboxImages.length) % currentLightboxImages.length;
+  updateLightboxView();
+}
+
+function nextLightboxImage(e) {
+  if (e) e.stopPropagation();
+  if (currentLightboxImages.length === 0) return;
+  currentLightboxIndex = (currentLightboxIndex + 1) % currentLightboxImages.length;
+  updateLightboxView();
+}
+
+function closeLightboxDirect() {
+  document.getElementById('photoLightbox').classList.remove('active');
+  document.removeEventListener('keydown', handleLightboxKeydown);
+}
+
+function closeLightbox(e) {
+  if (e.target.id === 'photoLightbox') {
+    closeLightboxDirect();
+  }
+}
+
+function handleLightboxKeydown(e) {
+  if (e.key === 'Escape') closeLightboxDirect();
+  if (e.key === 'ArrowLeft') prevLightboxImage();
+  if (e.key === 'ArrowRight') nextLightboxImage();
+}
+
+// ==========================================
+// 8. 模態視窗與輔助 (Modals & Theme)
+// ==========================================
+function openModal(modalId) {
+  const m = document.getElementById(modalId);
+  if (m) m.classList.add('active');
+}
+
+function closeModal(modalId) {
+  const m = document.getElementById(modalId);
+  if (m) m.classList.remove('active');
+}
+
+function closeModalOnBackdrop(e, modalId) {
+  if (e.target.id === modalId) {
+    closeModal(modalId);
+  }
+}
+
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme');
+  const target = current === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', target);
+  localStorage.setItem('practicum_theme', target);
+  document.getElementById('themeToggle').textContent = target === 'dark' ? '☀️' : '🌙';
+}
+
+function applyTheme() {
+  const saved = localStorage.getItem('practicum_theme') || 'light';
+  document.documentElement.setAttribute('data-theme', saved);
+  document.getElementById('themeToggle').textContent = saved === 'dark' ? '☀️' : '🌙';
+}
+
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  document.getElementById('toastMsg').textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 2800);
+}
+
+// 啟動 (Kickoff)
+window.addEventListener('DOMContentLoaded', init);
+</script>
+
+</body>
+</html>
