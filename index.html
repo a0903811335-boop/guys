@@ -1082,7 +1082,7 @@
 const DEFAULT_ACTIVITIES = [
   {
     id: "act-0804",
-    title: "0804大同戲院藝術活動校外教學",
+    title: "大同戲院藝術活動校外教學",
     category: "校外教學活動",
     date: "2026-08-04",
     location: "花蓮大同戲院 / 藝文歷史空間",
@@ -1120,7 +1120,7 @@ const DEFAULT_ACTIVITIES = [
   },
   {
     id: "act-0810",
-    title: "0810協助新生編班會議",
+    title: "協助新生編班會議",
     category: "行政實習",
     date: "2026-08-10",
     location: "學校第一行政會議室 / 教務處",
@@ -1178,7 +1178,7 @@ const DEFAULT_ACTIVITIES = [
   },
   {
     id: "act-0825",
-    title: "0825協助新生訓練",
+    title: "協助新生訓練",
     category: "導師實習",
     date: "2026-08-25",
     location: "學校大禮堂 / 各班教室",
@@ -1256,20 +1256,36 @@ function loadData() {
     activities.push(act0825);
   }
 
-  // 同步分類與標題
+  // 同步分類與去除數字日期前綴之標題
   activities.forEach(a => {
-    if (a.id === 'act-0804' || a.id === 'act-0806' || a.id === 'act-0811' || a.id === 'act-0814') {
+    if (a.id === 'act-0804') {
+      a.title = '大同戲院藝術活動校外教學';
       a.category = '校外教學活動';
     }
     if (a.id === 'act-0806') {
       a.title = '東華大學物理系參訪';
+      a.category = '校外教學活動';
+    }
+    if (a.id === 'act-0810') {
+      a.title = '協助新生編班會議';
+      a.category = '行政實習';
     }
     if (a.id === 'act-0811') {
       a.title = '花蓮港海事升學活動參訪';
+      a.category = '校外教學活動';
       a.location = '花蓮港 / 御風輪風力發電與綠能海事科技研發基地';
     }
     if (a.id === 'act-0814') {
       a.title = '玉里鎮校外教學活動';
+      a.category = '校外教學活動';
+    }
+    if (a.id === 'act-0817') {
+      a.title = '小論文指導';
+      a.category = '教學實習';
+    }
+    if (a.id === 'act-0825') {
+      a.title = '協助新生訓練';
+      a.category = '導師實習';
     }
     if (a.id === 'act-0828') {
       a.title = '備課日行政活動';
