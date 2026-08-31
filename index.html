@@ -1455,6 +1455,18 @@ const DEFAULT_ACTIVITIES = [
     ],
     description: "參與新學期全校開學始業式典禮。聆聽校長開學勉勵致詞、各處室行政報告與宣導事項，觀摩全校性大型集會之典禮流程掌控、師生動線引導及生活常規要求，見證新學期正式揚帆啟航。",
     reflection: "【典禮行政與開學展望省思】\n1. 透過參與全校始業式，深入體會大型集會典禮的行政籌備、音控設備協調與動線掌控細節。\n2. 觀察校長與各處室主任如何向全體學生傳遞新學期的期許與核心價值，凝聚全校師生向心力。\n3. 身為實習教師，在莊嚴溫馨的始業式中感受開學的朝氣與責任感，為接下來即將展開的教學與行政實習奠定專注與熱忱。"
+  },
+  {
+    id: "act-0831-mentor",
+    title: "進駐八年禮班開學日導師時間",
+    category: "導師實習",
+    date: "2026-08-31",
+    folder: "0831進駐班級八年禮班開學日導師時間",
+    photos: [
+      "0831進駐班級八年禮班開學日導師時間/IMG_8178.JPG"
+    ],
+    description: "開學首日正式進駐八年禮班見習導師時間。隨同實習輔導導師入班，協助開學註冊相關表件收發、暑期作業核對、新學期教科書發放與檢查，並向全班同學進行自我介紹與建立互動默契。",
+    reflection: "【班級經營與導師實習起步省思】\n1. 開學第一天走進八年禮班，感受到班級滿滿的青春朝氣與專屬班級文化。\n2. 觀察資深導師在開學首日如何迅速安頓學生心性、交代開學繁瑣事務並維持良好秩序。\n3. 期許自己在接下來的導師實習期間，能成為孩子們課業與心靈上的良師益友。"
   }
 ];
 
@@ -1515,6 +1527,10 @@ function loadData() {
   const act0831 = DEFAULT_ACTIVITIES.find(a => a.id === 'act-0831');
   if (!activities.some(a => a.id === 'act-0831') && act0831) {
     activities.push(act0831);
+  }
+  const act0831m = DEFAULT_ACTIVITIES.find(a => a.id === 'act-0831-mentor');
+  if (!activities.some(a => a.id === 'act-0831-mentor') && act0831m) {
+    activities.push(act0831m);
   }
 
   // 同步分類與去除數字日期前綴之標題
@@ -1586,6 +1602,16 @@ function loadData() {
         a.description = def0831.description;
         a.reflection = def0831.reflection;
         a.photos = def0831.photos;
+      }
+    }
+    if (a.id === 'act-0831-mentor') {
+      a.title = '進駐八年禮班開學日導師時間';
+      a.category = '導師實習';
+      const def0831m = DEFAULT_ACTIVITIES.find(d => d.id === 'act-0831-mentor');
+      if (def0831m) {
+        a.description = def0831m.description;
+        a.reflection = def0831m.reflection;
+        a.photos = def0831m.photos;
       }
     }
   });
