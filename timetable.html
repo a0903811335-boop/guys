@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="lavender">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>何世力 老師 · 教師每週課表</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <style>
+    /* ==========================================
+       THEME VARIABLES (5 款精選高質感色系)
+       ========================================== */
+    :root, [data-theme="lavender"] {
+      --bg-gradient: radial-gradient(120% 120% at 50% 10%, #faf5ff 0%, #f3e8ff 50%, #fdf4ff 100%);
+      --card-bg: rgba(255, 255, 255, 0.88);
+      --card-border: rgba(233, 213, 255, 0.8);
+      --card-shadow: 0 20px 40px -15px rgba(147, 51, 234, 0.12), 0 0 0 1px rgba(255, 255, 255, 0.7) inset;
+      --primary: #9333ea;
+      --primary-gradient: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+      --primary-light: #faf5ff;
+      --text-main: #3b0764;
+      --text-sub: #7e22ce;
+      --text-muted: #a855f7;
+      
+      --morning-bg: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+      --morning-border: #fde68a;
+      --morning-text: #b45309;
+      --morning-badge: #d97706;
+      --morning-shadow: 0 3px 10px rgba(217, 119, 6, 0.12);
+
+      --noon-bg: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+      --noon-border: #99f6e4;
+      --noon-text: #0f766e;
+      --noon-badge: #0d9488;
+      --noon-shadow: 0 3px 10px rgba(13, 148, 136, 0.12);
+
+      --chinese-bg: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+      --chinese-border: #fbcfe8;
+      --chinese-text: #be185d;
+      --chinese-badge: #db2777;
+      --chinese-shadow: 0 4px 12px rgba(219, 39, 119, 0.15);
+
+      --read-bg: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+      --read-border: #bfdbfe;
+      --read-text: #1d4ed8;
+      --read-badge: #2563eb;
+      --read-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+
+      --table-border: #f3e8ff;
+      --th-bg: #faf5ff;
+      --th-text: #6b21a8;
+      --period-bg: #faf5ff;
+      --period-text: #9333ea;
+      --empty-dot: #e9d5ff;
+    }
+
+    [data-theme="matcha"] {
+      --bg-gradient: radial-gradient(120% 120% at 50% 10%, #f2fbf6 0%, #e6f7ef 50%, #f0fdf4 100%);
+      --card-bg: rgba(255, 255, 255, 0.9);
+      --card-border: rgba(187, 247, 208, 0.8);
+      --card-shadow: 0 20px 40px -15px rgba(22, 101, 52, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.7) inset;
+      --primary: #16a34a;
+      --primary-gradient: linear-gradient(135deg, #16a34a 0%, #0d9488 100%);
+      --primary-light: #f0fdf4;
+      --text-main: #14532d;
+      --text-sub: #15803d;
+      --text-muted: #4ade80;
+      
+      --morning-bg: linear-gradient(135deg, #f7fee7 0%, #ecfccb 100%);
+      --morning-border: #d9f99d;
+      --morning-text: #4d7c0f;
+      --morning-badge: #65a30d;
+      --morning-shadow: 0 3px 10px rgba(101, 163, 13, 0.12);
+
+      --noon-bg: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+      --noon-border: #a7f3d0;
+      --noon-text: #047857;
+      --noon-badge: #059669;
+      --noon-shadow: 0 3px 10px rgba(5, 150, 105, 0.12);
+
+      --chinese-bg: linear-gradient(135deg, #fefce8 0%, #fef9c3 100%);
+      --chinese-border: #fef08a;
+      --chinese-text: #854d0e;
+      --chinese-badge: #ca8a04;
+      --chinese-shadow: 0 4px 12px rgba(202, 138, 4, 0.15);
+
+      --read-bg: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+      --read-border: #99f6e4;
+      --read-text: #0f766e;
+      --read-badge: #0d9488;
+      --read-shadow: 0 4px 12px rgba(13, 148, 136, 0.15);
+
+      --table-border: #dcfce7;
+      --th-bg: #f0fdf4;
+      --th-text: #166534;
+      --period-bg: #f0fdf4;
+      --period-text: #15803d;
+      --empty-dot: #bbf7d0;
+    }
+
+    [data-theme="sakura"] {
+      --bg-gradient: radial-gradient(120% 120% at 50% 10%, #fff5f7 0%, #fee2e8 50%, #fff1f2 100%);
+      --card-bg: rgba(255, 255, 255, 0.9);
+      --card-border: rgba(254, 205, 219, 0.8);
+      --card-shadow: 0 20px 40px -15px rgba(225, 29, 72, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.7) inset;
+      --primary: #e11d48;
+      --primary-gradient: linear-gradient(135deg, #f43f5e 0%, #fb7185 100%);
+      --primary-light: #fff1f2;
+      --text-main: #4c0519;
+      --text-sub: #9f1239;
+      --text-muted: #fb7185;
+      
+      --morning-bg: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+      --morning-border: #fed7aa;
+      --morning-text: #c2410c;
+      --morning-badge: #ea580c;
+      --morning-shadow: 0 3px 10px rgba(234, 88, 12, 0.12);
+
+      --noon-bg: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+      --noon-border: #ddd6fe;
+      --noon-text: #6d28d9;
+      --noon-badge: #7c3aed;
+      --noon-shadow: 0 3px 10px rgba(124, 58, 237, 0.12);
+
+      --chinese-bg: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);
+      --chinese-border: #fecdd3;
+      --chinese-text: #be123c;
+      --chinese-badge: #e11d48;
+      --chinese-shadow: 0 4px 12px rgba(225, 29, 72, 0.15);
+
+      --read-bg: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+      --read-border: #e9d5ff;
+      --read-text: #7e22ce;
+      --read-badge: #9333ea;
+      --read-shadow: 0 4px 12px rgba(147, 51, 234, 0.15);
+
+      --table-border: #ffe4e6;
+      --th-bg: #fff1f2;
+      --th-text: #9f1239;
+      --period-bg: #fff1f2;
+      --period-text: #e11d48;
+      --empty-dot: #fecdd3;
+    }
+
+    [data-theme="morandi"] {
+      --bg-gradient: radial-gradient(120% 120% at 50% 10%, #faf8f5 0%, #f3eee7 50%, #f7f3ed 100%);
+      --card-bg: rgba(255, 255, 255, 0.92);
+      --card-border: rgba(229, 220, 208, 0.8);
+      --card-shadow: 0 20px 40px -15px rgba(120, 100, 80, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.7) inset;
+      --primary: #786450;
+      --primary-gradient: linear-gradient(135deg, #8c735d 0%, #a68a6f 100%);
+      --primary-light: #f7f4ef;
+      --text-main: #382e25;
+      --text-sub: #635242;
+      --text-muted: #a38f7e;
+      
+      --morning-bg: linear-gradient(135deg, #fcf8f2 0%, #f5ece0 100%);
+      --morning-border: #e6dac8;
+      --morning-text: #8c6d3d;
+      --morning-badge: #a88448;
+      --morning-shadow: 0 3px 10px rgba(140, 109, 61, 0.1);
+
+      --noon-bg: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+      --noon-border: #cbd5e1;
+      --noon-text: #334155;
+      --noon-badge: #475569;
+      --noon-shadow: 0 3px 10px rgba(71, 85, 105, 0.1);
+
+      --chinese-bg: linear-gradient(135deg, #fbf7ee 0%, #f5ecd7 100%);
+      --chinese-border: #e8dbbe;
+      --chinese-text: #705828;
+      --chinese-badge: #8f7236;
+      --chinese-shadow: 0 4px 12px rgba(112, 88, 40, 0.12);
+
+      --read-bg: linear-gradient(135deg, #f0f4f5 0%, #e2eaec 100%);
+      --read-border: #cad8dc;
+      --read-text: #415e65;
+      --read-badge: #53757d;
+      --read-shadow: 0 4px 12px rgba(65, 94, 101, 0.12);
+
+      --table-border: #ede6dc;
+      --th-bg: #f7f3ed;
+      --th-text: #635242;
+      --period-bg: #f7f3ed;
+      --period-text: #786450;
+      --empty-dot: #e2d7c9;
+    }
+
+    [data-theme="dark"] {
+      --bg-gradient: radial-gradient(120% 120% at 50% 10%, #0f172a 0%, #020617 100%);
+      --card-bg: rgba(30, 41, 59, 0.85);
+      --card-border: rgba(51, 65, 85, 0.8);
+      --card-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+      --primary: #38bdf8;
+      --primary-gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+      --primary-light: #1e293b;
+      --text-main: #f8fafc;
+      --text-sub: #cbd5e1;
+      --text-muted: #64748b;
+      
+      --morning-bg: linear-gradient(135deg, rgba(251, 191, 36, 0.15) 0%, rgba(245, 158, 11, 0.08) 100%);
+      --morning-border: rgba(251, 191, 36, 0.35);
+      --morning-text: #fef08a;
+      --morning-badge: #fbbf24;
+      --morning-shadow: 0 3px 12px rgba(251, 191, 36, 0.12);
+
+      --noon-bg: linear-gradient(135deg, rgba(20, 184, 166, 0.15) 0%, rgba(13, 148, 136, 0.08) 100%);
+      --noon-border: rgba(45, 212, 191, 0.35);
+      --noon-text: #5eead4;
+      --noon-badge: #14b8a6;
+      --noon-shadow: 0 3px 12px rgba(20, 184, 166, 0.12);
+
+      --chinese-bg: linear-gradient(135deg, rgba(244, 114, 182, 0.15) 0%, rgba(236, 72, 153, 0.08) 100%);
+      --chinese-border: rgba(244, 114, 182, 0.4);
+      --chinese-text: #fbcfe8;
+      --chinese-badge: #f472b6;
+      --chinese-shadow: 0 4px 16px rgba(244, 114, 182, 0.15);
+
+      --read-bg: linear-gradient(135deg, rgba(147, 197, 253, 0.15) 0%, rgba(96, 165, 250, 0.08) 100%);
+      --read-border: rgba(96, 165, 250, 0.4);
+      --read-text: #bfdbfe;
+      --read-badge: #60a5fa;
+      --read-shadow: 0 4px 16px rgba(96, 165, 250, 0.15);
+
+      --table-border: #334155;
+      --th-bg: #1e293b;
+      --th-text: #94a3b8;
+      --period-bg: #1e293b;
+      --period-text: #38bdf8;
+      --empty-dot: #334155;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro TC", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 16px;
+      transition: all 0.4s ease;
+    }
+
+    /* Top Control Bar */
+    .top-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 680px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .theme-selector {
+      display: flex;
+      align-items: center;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 999px;
+      padding: 4px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      backdrop-filter: blur(8px);
+      gap: 4px;
+    }
+
+    .theme-btn {
+      border: none;
+      background: transparent;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-sub);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .theme-btn:hover {
+      background: var(--primary-light);
+    }
+
+    .theme-btn.active {
+      background: var(--primary-gradient);
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1px solid var(--card-border);
+      background: var(--card-bg);
+      color: var(--text-main);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      backdrop-filter: blur(8px);
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .btn-primary {
+      background: var(--primary-gradient);
+      color: #fff;
+      border: none;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+    }
+    .btn-primary:hover {
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.22);
+    }
+
+    /* Timetable Card */
+    .timetable-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      width: 100%;
+      max-width: 680px;
+      border-radius: 28px;
+      border: 1px solid var(--card-border);
+      box-shadow: var(--card-shadow);
+      padding: 36px 32px 30px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Card Ambient Glow */
+    .timetable-card::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 220px;
+      height: 220px;
+      background: var(--primary-gradient);
+      opacity: 0.08;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(50px);
+    }
+
+    /* Header */
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 22px;
+      position: relative;
+    }
+
+    .teacher-badge-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .avatar-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      background: var(--primary-gradient);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+      flex-shrink: 0;
+    }
+
+    .title-area h1 {
+      font-size: 1.48rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .title-area p {
+      font-size: 0.86rem;
+      color: var(--text-sub);
+      margin-top: 3px;
+      font-weight: 500;
+    }
+
+    .header-pills {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+    }
+
+    .stat-pill {
+      background: var(--primary-light);
+      border: 1px solid var(--card-border);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-sub);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* Table Container */
+    .table-container {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--table-border);
+      background: var(--card-bg);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+    }
+
+    th, td {
+      border: 1px solid var(--table-border);
+      padding: 0;
+      height: 48px;
+      position: relative;
+    }
+
+    th {
+      background: var(--th-bg);
+      color: var(--th-text);
+      font-size: 0.92rem;
+      font-weight: 700;
+      height: 38px;
+      letter-spacing: 0.05em;
+    }
+
+    th.col-period {
+      width: 58px;
+    }
+
+    th.col-day {
+      width: calc((100% - 58px) / 5);
+    }
+
+    td.period-col {
+      background: var(--period-bg);
+      color: var(--period-text);
+      font-size: 0.88rem;
+      font-weight: 800;
+      width: 58px;
+    }
+
+    /* Course Cards */
+    .course-card {
+      width: calc(100% - 6px);
+      height: calc(100% - 6px);
+      margin: 3px auto;
+      border-radius: 9px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1px;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: default;
+      user-select: none;
+    }
+
+    .course-card:hover {
+      transform: translateY(-2px) scale(1.02);
+      filter: brightness(0.98);
+    }
+
+    .course-morning {
+      background: var(--morning-bg);
+      border: 1.5px solid var(--morning-border);
+      color: var(--morning-text);
+      box-shadow: var(--morning-shadow);
+    }
+
+    .course-noon {
+      background: var(--noon-bg);
+      border: 1.5px solid var(--noon-border);
+      color: var(--noon-text);
+      box-shadow: var(--noon-shadow);
+    }
+
+    .course-chinese {
+      background: var(--chinese-bg);
+      border: 1.5px solid var(--chinese-border);
+      color: var(--chinese-text);
+      box-shadow: var(--chinese-shadow);
+    }
+
+    .course-read {
+      background: var(--read-bg);
+      border: 1.5px solid var(--read-border);
+      color: var(--read-text);
+      box-shadow: var(--read-shadow);
+    }
+
+    .subject-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      line-height: 1.15;
+    }
+
+    .class-tag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      opacity: 0.9;
+      letter-spacing: 0.02em;
+    }
+
+    /* Empty Cell subtle dot */
+    .empty-cell {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .empty-cell::after {
+      content: '';
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--empty-dot);
+      opacity: 0.6;
+    }
+
+    /* Card Footer */
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--table-border);
+      font-size: 0.82rem;
+      color: var(--text-sub);
+      font-weight: 500;
+    }
+
+    .legend-group {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.78rem;
+    }
+
+    .legend-color {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+    }
+
+    .legend-morning { background: var(--morning-badge); }
+    .legend-noon { background: var(--noon-badge); }
+    .legend-chinese { background: var(--chinese-badge); }
+    .legend-read { background: var(--read-badge); }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: #fff !important;
+        padding: 0 !important;
+      }
+      .top-controls {
+        display: none !important;
+      }
+      .timetable-card {
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+        max-width: 100% !important;
+        padding: 20px !important;
+        border-radius: 0 !important;
+      }
+      .course-card {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      th, td {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Controller (Theme + Actions) -->
+  <div class="top-controls">
+    <div class="theme-selector">
+      <button class="theme-btn active" onclick="setTheme('lavender', this)">🌸 晨薰</button>
+      <button class="theme-btn" onclick="setTheme('sakura', this)">🌺 櫻粉</button>
+      <button class="theme-btn" onclick="setTheme('matcha', this)">🍵 抹茶</button>
+      <button class="theme-btn" onclick="setTheme('morandi', this)">🌾 莫蘭迪</button>
+      <button class="theme-btn" onclick="setTheme('dark', this)">🌙 暗夜</button>
+    </div>
+
+    <div class="action-buttons">
+      <a href="index.html" class="btn" title="返回紀事首頁">🪶 首頁</a>
+      <button class="btn" onclick="downloadImage()" title="下載為高解析課表圖片">
+        <span>📸</span> 存成圖片
+      </button>
+      <button class="btn btn-primary" onclick="window.print()" title="以乾淨 A4 格式列印或另存為 PDF">
+        <span>🖨️</span> 列印 / PDF
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Timetable Card -->
+  <main class="timetable-card" id="captureCard">
+    <!-- Header -->
+    <header class="card-header">
+      <div class="teacher-badge-group">
+        <div class="avatar-icon">📖</div>
+        <div class="title-area">
+          <h1>何世力 老師 · 教師課表</h1>
+          <p>教師編號：003 ｜ 任教班級：八年禮班</p>
+        </div>
+      </div>
+
+      <div class="header-pills">
+        <span class="stat-pill">✨ 正課：6 節 ｜ 早自習＋午休隨班</span>
+        <span class="stat-pill">🏫 國語文領域</span>
+      </div>
+    </header>
+
+    <!-- Timetable Grid -->
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th class="col-period">節次</th>
+            <th class="col-day">週一</th>
+            <th class="col-day">週二</th>
+            <th class="col-day">週三</th>
+            <th class="col-day">週四</th>
+            <th class="col-day">週五</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 早自習 -->
+          <tr>
+            <td class="period-col" style="font-size: 0.8rem; font-weight: 700;">早</td>
+            <td>
+              <div class="course-card course-morning">
+                <span class="subject-title">早自習</span>
+                <span class="class-tag">八禮</span>
+              </div>
+            </td>
+            <td>
+              <div class="course-card course-morning">
+                <span class="subject-title">早自習</span>
+                <span class="class-tag">八禮</span>
+              </div>
+            </td>
+            <td>
+              <div class="course-card course-morning">
+                <span class="subject-title">早自習</span>
+                <span class="class-tag">八禮</span>
+              </div>
+            </td>
+            <td>
+              <div class="course-card course-morning">
+                <span class="subject-title">早自習</span>
+                <span class="class-tag">八禮</span>
+              </div>
+            </td>
+            <td>
+              <div class="course-card course-morning">
+                <span class="subject-title">早自習</span>
+                <span class="class-tag">八禮</span>
+              </div>
+            </td>
+          </tr>
+          <!-- 第 1 節 -->
+          <tr>
+            <td class="period-col">1</td>
+            <td><div class="empty-cell"></div></td>
+            <td><div class="empty-cell"></div></td>
+            <td><div class="empty-cell"></div></td>
+            <td><div class="empty-cell"></div></td>
+            <td><div class="empty-cell"></div></td>
+          </tr>
+          <!-- 第 2 節 -->
+          <tr>
+            <td class="period-col">2</td>
+            <td><div class="empty-cell"></div></td>
+            <td><div class="empty-cell"></div></td>
+            <td>
+              <div class="course-card course-chinese">
+                <span class="subject-title">國文</span>
+                <span class="class-tag">八禮</span>
+              </div>
+            </td>
+            <td><div class="empty-cell"></div></td>
+            <td>
+              <div class="course-card course-chinese">
+                <span class="subject-title">國文</span>
+                <span class="class-tag">八禮</span>
+              </div>
+            </td>
+          </tr>
+          <!-- 第 3 節 -->
+          <tr>
+            <td class="period-col">3</td>
+            <td>
+              <div class="course-card course-chinese">
+                <span class="subject-title">國文</span>
+                <span class="class-tag">八禮</span>
+              </div>
+            </td>
+            <td>
+              <div class="course-card course-chinese">
+                <span class="subject-title">國文</span>
+                <span class="class-tag">八禮</span>
+              </div>
+            </td>
+            <td><div class="empty-cell"></div></td>
+            <td><div class="empty-cell"></div></td>
+            <td><div class="empty-cell"></div></td>
+          </tr>
+          <!-- 第 4 節 -->
+          <tr>
+            <td class="period-col">4</td>
+            <td><div class="empty-cell"></div></td>
+            <td><div class="empty-cell"></div></td>
+            <td><div class="empty-cell"></div></td>
+            <td><div class="empty-cell"></div></td>
+            <td><div class="empty-cell"></div></td>
+          </tr>
+          <!-- 午休 / 中午 -->
+          <tr>
+            <td class="period-col" style="font-size: 0.8rem; font-weight: 700;">午</td>
+            <td>
+              <div class="course-card course-noon">
+                <span class="subject-title">午休</span>
+                <span class="class-tag">八禮</span>
+              </div>
+            </td>
+            <td>
+              <div class="course-card course-noon">
+                <span class="subject-title">午休</span>
+                <span class="class-tag">八禮</span>
+              </div>
+            </td>
+            <td>
+              <div class="course-card course-noon">
+                <span class="subject-title">午休</span>
+                <span class="class-tag">八禮</span>
+              </div>
+            </td>
+            <td>
+              <div class="course-card course-noon">
+                <span class="subject-title">午休</span>
+                <span class="class-tag">八禮</span>
+              </div>
+            </td>
+            <td>
+              <div class="course-card course-noon">
+                <span class="subject-title">午休</span>
+                <span class="class-tag">八禮</span>
+              </div>
+            </td>
+          </tr>
+          <!-- 第 5 節 -->
+          <tr>
+            <td class="period-col">5</td>
+            <td><div class="empty-cell"></div></td>
+            <td><div class="empty-cell"></div></td>
+            <td><div class="empty-cell"></div></td>
+            <td><div class="empty-cell"></div></td>
+            <td><div class="empty-cell"></div></td>
+          </tr>
+          <!-- 第 6 節 -->
+          <tr>
+            <td class="period-col">6</td>
+            <td><div class="empty-cell"></div></td>
+            <td><div class="empty-cell"></div></td>
+            <td><div class="empty-cell"></div></td>
+            <td>
+              <div class="course-card course-chinese">
+                <span class="subject-title">國文</span>
+                <span class="class-tag">八禮</span>
+              </div>
+            </td>
+            <td><div class="empty-cell"></div></td>
+          </tr>
+          <!-- 第 7 節 -->
+          <tr>
+            <td class="period-col">7</td>
+            <td><div class="empty-cell"></div></td>
+            <td><div class="empty-cell"></div></td>
+            <td><div class="empty-cell"></div></td>
+            <td><div class="empty-cell"></div></td>
+            <td>
+              <div class="course-card course-read">
+                <span class="subject-title">閱讀</span>
+                <span class="class-tag">八禮</span>
+              </div>
+            </td>
+          </tr>
+          <!-- 第 8 節 -->
+          <tr>
+            <td class="period-col">8</td>
+            <td><div class="empty-cell"></div></td>
+            <td><div class="empty-cell"></div></td>
+            <td><div class="empty-cell"></div></td>
+            <td><div class="empty-cell"></div></td>
+            <td><div class="empty-cell"></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Footer Summary -->
+    <footer class="card-footer">
+      <div class="legend-group">
+        <span class="legend-item">
+          <span class="legend-color legend-morning"></span> 早自習
+        </span>
+        <span class="legend-item">
+          <span class="legend-color legend-noon"></span> 午休隨班
+        </span>
+        <span class="legend-item">
+          <span class="legend-color legend-chinese"></span> 國文 (5 節)
+        </span>
+        <span class="legend-item">
+          <span class="legend-color legend-read"></span> 閱讀 (1 節)
+        </span>
+      </div>
+      <span>授課班級：八年禮班</span>
+    </footer>
+  </main>
+
+  <script>
+    function setTheme(theme, btn) {
+      document.documentElement.setAttribute('data-theme', theme);
+      document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      localStorage.setItem('timetable_theme', theme);
+    }
+
+    // Restore theme
+    const savedTheme = localStorage.getItem('timetable_theme') || 'lavender';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    document.querySelectorAll('.theme-btn').forEach(b => {
+      if (b.getAttribute('onclick').includes(savedTheme)) {
+        b.classList.add('active');
+      } else {
+        b.classList.remove('active');
+      }
+    });
+
+    // Save as Image (PNG)
+    function downloadImage() {
+      const card = document.getElementById('captureCard');
+      html2canvas(card, {
+        scale: 3,
+        backgroundColor: null,
+        useCORS: true
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = '何世力老師_每週課表.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      });
+    }
+  </script>
+</body>
+</html>
